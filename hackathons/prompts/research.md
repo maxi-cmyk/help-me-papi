@@ -1,0 +1,1 @@
+# genrate research based on problem sattement and pain points identified 
