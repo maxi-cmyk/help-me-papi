@@ -1,6 +1,7 @@
 # Frontend References
 
-## UI Inspiration
+## UI Inspiration (insert links if necessary)
 
-- 21st.dev for 3D components.
+
+
 
