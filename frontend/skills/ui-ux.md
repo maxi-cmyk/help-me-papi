@@ -1,3 +1,5 @@
+#frontend/skills
+
 # UI/UX Principles: Clarity-First Design (works alongside claude's frontend-design skill)
 
 This skill is a **constraint layer** that works alongside the `frontend-design` skill. Where `frontend-design` handles aesthetic direction and creative execution, this skill governs **what to show, what to hide, and how to structure interaction** so that every element earns its place on screen. 
