@@ -1,6 +1,6 @@
 # help-me-papi
 
-Consolidated notes, prompts, skills, resources, and ideas across frontend, backend, database, deployment, AI and case by case use for hackathons.
+Consolidated notes, prompts, skills, resources, and ideas across frontend, backend, database, deployment, AI and case-by-case use for hackathons.
 
 ## Structure
 
