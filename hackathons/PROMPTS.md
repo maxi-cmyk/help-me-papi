@@ -1,20 +1,15 @@
-# Hackathon Strategy System
+# Hackathon Strategy Prompts
 
-Three prompts that chain together in one conversation.
-
-1. **Strategic Analysis** — landscape, judges, competitors
-2. **User Persona** — deep-dive into one target user, informed by your real knowledge
-3. **Ideation** — project ideas with user flow as a first-class concern
+Three prompts that chain together in one conversation to help conceptualize and win hackathons.
 
 ---
 
 ## Prompt 1: Strategic Analysis
+Copy everything below the line into a new conversation. Fill in the bracketed fields with whatever you have — leave blanks empty, say "research this" next to anything you want Claude to look up. 
 
-Copy everything below the line into a new conversation. Fill in the bracketed fields with whatever you have — leave blanks empty, say "research this" next to anything you want Claude to look up.
+Wait for Claude to ask you about your target user before moving to Prompt 2.
 
----
-
-```
+```text
 You are a hackathon strategist. Your job is to analyze a hackathon's competitive landscape and help me find the highest-leverage angle for a winning project.
 
 ## What I Know
@@ -57,7 +52,7 @@ For each judge (or judge *type* if names aren't known):
 
 If I haven't provided judge names, infer likely judge profiles from the sponsor types and hackathon context (e.g. a fintech sponsor likely sends a product lead or engineering director).
 
-Environmental Context: How does the local setting (e.g., Singapore’s "Smart Nation" goals) influence the relevance of a project?**
+Environmental Context: How does the local setting (e.g., Singapore’s "Smart Nation" goals) influence the relevance of a project?
 
 ### 3. Competitor Analysis
 
@@ -85,12 +80,9 @@ Then **ask me** about our target user base before moving on. Specifically, ask m
 ---
 
 ## Prompt 2: User Persona
-
 After Prompt 1, Claude will ask you about your target user. Answer with whatever you know — real observations, people you've met, your own experience. Then send this:
 
----
-
-```
+```text
 Based on what I just told you and the strategic analysis above, build one detailed user persona.
 
 **Who they are**: Name, age range, role, daily context. Make them specific enough to feel like a real person we're building for, not a demographic bucket.
@@ -111,12 +103,9 @@ After generating the persona, also research this user group — search for relev
 ---
 
 ## Prompt 3: Ideation
-
 Run this in the **same conversation** after reviewing the persona.
 
----
-
-```
+```text
 Now generate project ideas based on the strategic analysis and user persona above.
 
 For each of the strategic angles you identified, propose 2–3 concrete project ideas. For each idea:
@@ -152,14 +141,3 @@ After listing all ideas, rank them:
 
 End with your top recommendation and why.
 ```
-
----
-
-## Tips
-
-- **Paste raw info generously.** Hackathon websites, sponsor descriptions, prize descriptions, judge bios — paste it all into the context. The more Claude has, the sharper the analysis.
-- **Be honest in the persona interview.** The more real observations you give Claude in Prompt 2, the less generic the persona. "My friend's mom runs a hawker stall and she tracks orders on paper" beats "small business owners need digital tools."
-- **Re-run Prompt 1 when new info drops.** If judges are announced later or the problem statement gets clarified, re-run with the updated info.
-- **Challenge the competitor analysis.** If Claude's "common project" predictions don't match your read of the room, push back — you know the vibe of the event better than it does.
-- **The persona is the anchor.** Judges remember "we built this for elderly hawker stall owners who can't track inventory" more than "we built an AI-powered inventory system."
-- **Stress-test the user flow.** If you can't explain what the user does at every step in plain language, the flow isn't clear enough. Simplify until you can.

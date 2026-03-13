@@ -19,8 +19,8 @@ Open `inbox.md` and add a block with a tag. Separate blocks with a blank line.
 Useful pattern for handling optimistic updates with server actions
 #backend/skills/nextjs
 
-Great Tailwind plugin for animations: https://example.com
-#frontend/resources/ui-ux
+Great component pattern for glassmorphism
+#frontend/design-system
 
 Not sure what file this belongs in yet, but it's a frontend skill
 #frontend/skills
@@ -52,7 +52,7 @@ mkdir -p database/skills
 touch database/skills/migrations.md
 ```
 
-Shorthand tags (like `#database/migrations`) default to the `skills/` subfolder when auto-created. Use the explicit form (`#database/resources/migrations`) if you want a different content type.
+Shorthand tags (like `#database/migrations`) default to the `skills/` subfolder when auto-created. Use the explicit form (`#database/ideas/migrations`) if you want a different content type.
 
 ### Folder-level tags
 
@@ -89,12 +89,10 @@ Each domain can have these subfolders:
 
 | Folder | What goes in it |
 |--------|----------------|
-| `skills/` | How-to guides, workflows, principles, playbooks |
-| `prompts/` | Copy-paste prompts for AI tools (Claude, GPT, Copilot) |
-| `resources/` | Links, libraries, tools, cheat sheets, references |
-| `ideas/` | Experiments, half-baked thoughts, backlog items |
+| `skills/` | How-to guides, workflows, principles, playbooks (AI Prompts hook onto these) |
+| `ideas/` | Experiments, half-baked thoughts, backlog items, scratchpad logic |
 
-Not every domain needs every subfolder. Create them as needed.
+*Note: All other documentation (prompts, resources, decisions) should be consolidated into flat, top-level markdown files within the domain directory (like `frontend/design-system.md`). We do NOT use `resources/` or `prompts/` subdirectories anymore to prevent context fragmentation.*
 
 ### Headings
 

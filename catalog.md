@@ -17,20 +17,6 @@
 - [RAG Evaluation](AI/RAG/skills/evaluation.md)
 - [Retrieval](AI/RAG/skills/retrieval.md)
 
-### Prompts
-
-- [ML Analysis Prompt](AI/ML/prompts/analysis.md)
-- [ML Training Prompt](AI/ML/prompts/training.md)
-- [RAG Evaluation Prompt](AI/RAG/prompts/evaluation.md)
-- [RAG Implementation Prompt](AI/RAG/prompts/implementation.md)
-
-### Resources
-
-- [ML References](AI/ML/resources/references.md)
-- [ML Tooling](AI/ML/resources/tooling.md)
-- [RAG References](AI/RAG/resources/references.md)
-- [RAG Tooling](AI/RAG/resources/tooling.md)
-
 ### Ideas
 
 - [ML Experiments](AI/ML/ideas/experiments.md)
@@ -40,29 +26,16 @@
 
 ### Other
 
-- [ML Decisions](AI/ML/decisions.md)
-- [ML Standards](AI/ML/standards.md)
-- [RAG Decisions](AI/RAG/decisions.md)
-- [RAG Standards](AI/RAG/standards.md)
+- [ML PROMPTS](AI/ML/PROMPTS.md)
+- [ML Guidelines](AI/ML/guidelines.md)
+- [RAG PROMPTS](AI/RAG/PROMPTS.md)
+- [RAG Guidelines](AI/RAG/guidelines.md)
 
 ## backend
 
 ### Skills
 
-- [API Design](backend/skills/api-design.md)
-- [Backend Auth](backend/skills/auth.md)
-- [Background Jobs](backend/skills/background-jobs.md)
-- [Integrations](backend/skills/integrations.md)
-
-### Prompts
-
-- [Backend Debugging Prompt](backend/prompts/debugging.md)
-- [Backend Implementation Prompt](backend/prompts/implementation.md)
-
-### Resources
-
-- [Backend References](backend/resources/references.md)
-- [Backend Tooling](backend/resources/tooling.md)
+- [Hackathon Backend Practices](backend/skills/SKILLS.md)
 
 ### Ideas
 
@@ -71,57 +44,15 @@
 
 ### Other
 
-- [Backend Decisions](backend/decisions.md)
-- [Backend Standards](backend/standards.md)
-
-## database
-
-### Skills
-
-- [Migrations](database/skills/migrations.md)
-- [Query Tuning](database/skills/query-tuning.md)
-- [Schema Design](database/skills/schema-design.md)
-
-### Prompts
-
-- [Database Analysis Prompt](database/prompts/analysis.md)
-- [Database Schema Prompt](database/prompts/schema.md)
-
-### Resources
-
-- [Database References](database/resources/references.md)
-- [Database Tools](database/resources/tools.md)
-
-### Ideas
-
-- [Data Model Ideas](database/ideas/data-model.md)
-- [Database Improvements](database/ideas/improvements.md)
-
-### Other
-
-- [Database Decisions](database/decisions.md)
-- [Database Standards](database/standards.md)
+- [PROMPTS](backend/PROMPTS.md)
+- [Architecture & API](backend/architecture-and-api.md)
+- [Deployment & Auth](backend/deployment-and-auth.md)
 
 ## frontend
 
 ### Skills
 
-- [Accessibility](frontend/skills/accessibility.md)
-- [Component Patterns](frontend/skills/components.md)
-- [Frontend Performance](frontend/skills/performance.md)
-- [Styling](frontend/skills/styling.md)
-- [UI/UX Principles: Clarity-First Design (works alongside claude's frontend-design skill)](frontend/skills/ui-ux.md)
-
-### Prompts
-
-- [Frontend Build Prompt](frontend/prompts/build.md)
-- [Frontend Review Prompt](frontend/prompts/review.md)
-
-### Resources
-
-- [Frontend Inspiration](frontend/resources/inspiration.md)
-- [Frontend Libraries](frontend/resources/libraries.md)
-- [Frontend References](frontend/resources/references.md)
+- [UI/UX Principles: Clarity-First Design (works alongside claude's frontend-design skill)](frontend/skills/SKILLS.md)
 
 ### Ideas
 
@@ -130,34 +61,30 @@
 
 ### Other
 
-- [Frontend Decisions](frontend/decisions.md)
-- [Frontend Standards](frontend/standards.md)
+- [AI Prompts](frontend/PROMPTS.md)
+- [Architecture & Performance](frontend/architecture-and-perf.md)
+- [Design System](frontend/design-system.md)
+- [Inspiration & Tools](frontend/inspiration-and-tools.md)
 
 ## hackathons
-
-### Skills
-
-- [Hackathon Skills](hackathons/skills/overview.md)
-
-### Prompts
-
-- [make a persona and identify user flow](hackathons/prompts/persona.md)
-- [genrate research based on problem sattement and pain points identified](hackathons/prompts/research.md)
-- [Strategy](hackathons/prompts/strategy.md)
-
-### Resources
-
-- [Hackathon Resources](hackathons/resources/references.md)
 
 ### Ideas
 
 - [Hackathon Project Ideas](hackathons/ideas/project-ideas.md)
 
+### Other
+
+- [Hackathon Strategy Prompts](hackathons/PROMPTS.md)
+- [Hackathon Strategy & Resources](hackathons/strategy-and-resources.md)
+
 ## hardware
+
+### Skills
+
+- [speed optimisation](hardware/skills/SKILLS.md)
 
 ### Other
 
-- [speed optimisation](hardware/SKILLS.md)
 - [good to know how they work, for info on how to build with them, ask max](hardware/components.md)
 
 ## others
@@ -167,11 +94,10 @@
 - [Shared Patterns](others/skills/patterns.md)
 - [Shared Review Checklists](others/skills/review-checklists.md)
 
-### Resources
-
-- [Shared References](others/resources/references.md)
-- [Shared Tools](others/resources/tools.md)
-
 ### Ideas
 
 - [Repo Improvements](others/ideas/repo-improvements.md)
+
+### Other
+
+- [Guidelines & Resources](others/guidelines.md)

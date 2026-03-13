@@ -18,7 +18,7 @@ PATH_TAG_RE = re.compile(r"(?<!\w)#([A-Za-z][A-Za-z0-9_-]*(?:/[A-Za-z0-9_-]+)+)"
 FENCED_BLOCK_RE = re.compile(r"```.*?```|`[^`\n]+`", re.DOTALL)
 CONTRIBUTOR_RE = re.compile(r"<!--\s*@([^>]+?)\s*-->")
 
-DEFAULT_CONTENT_FOLDERS = {"skills", "resources", "ideas", "prompts"}
+DEFAULT_CONTENT_FOLDERS = {"skills", "ideas"}
 CONTENT_FOLDERS_FILE = ".content-folders"
 CATALOG_FILE = "catalog.md"
 FOLDER_INBOX = "_inbox.md"
@@ -227,7 +227,7 @@ def infer_create_path(tag: str, root: Path, content_folders: set[str]) -> Path |
 
     #backend/auth           -> backend/skills/auth.md   (defaults to skills/)
     #backend/skills/auth    -> backend/skills/auth.md   (explicit)
-    #frontend/resources/ui  -> frontend/resources/ui.md (explicit)
+    #frontend/ideas/ui      -> frontend/ideas/ui.md     (explicit)
     """
     parts = tag.split("/")
     if len(parts) < 2:
@@ -519,7 +519,7 @@ def generate_catalog(root: Path) -> int:
         lines.append("")
 
     # Content type display order
-    type_order = ["skills", "prompts", "resources", "ideas", "other"]
+    type_order = ["skills", "ideas", "other"]
 
     for domain in sorted(domains):
         lines.append(f"## {domain}")
