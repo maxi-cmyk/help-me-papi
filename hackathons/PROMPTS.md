@@ -102,8 +102,16 @@ After generating the persona, also research this user group — search for relev
 
 ---
 
+## Intermediate Step: Low-Fidelity Prototyping
+Immediately after generating the persona and before moving to ideation, start your low-fidelity prototyping in parallel with setting up your dev environment.
+
+- **Tools:** Use Figma, Stitch, or just draw it out on paper.
+- **Goal:** Map out the 2-3 core screens that demonstrate the user flow. Align the team on the UX before writing any complex UI code.
+
+---
+
 ## Prompt 3: Ideation
-Run this in the **same conversation** after reviewing the persona.
+Run this in the **same conversation** after reviewing the persona and starting the prototyping phase.
 
 ```text
 Now generate project ideas based on the strategic analysis and user persona above.
