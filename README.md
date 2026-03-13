@@ -20,18 +20,19 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributer guide.
 ├── AI/                # RAG, ML, embeddings, LLM workflows
 ├── hackathons/        # Strategy, playbooks, starter stacks (logistics only)
 ├── hardware/          # Hardware-specific notes
+├── tools/             # Automation, custom CLI scripts, and MCP Servers
 ├── others/            # Cross-domain patterns, anything that doesn't fit above
 ├── inbox.md           # Drop notes here, sort them later
 ├── catalog.md         # Auto-generated index of everything
 └── organiser.py       # The sorting engine
 ```
 
-Each domain can have these subfolders:
+Each domain avoids nested subdirectories to prevent context fragmentation. The standard 4-pillar structure is:
 
-- `skills/` — workflows, principles, playbooks
-- `prompts/` — copy-paste prompts for AI tools
-- `resources/` — links, libraries, tools, references
-- `ideas/` — experiments, backlog, half-baked thoughts
+- `skills/` — Foundational playbooks, tools, and workflows
+- `ideas/` — Scrappy thoughts, experiments, backlog
+- `guidelines.md` — Consolidated standards, decisions, toolings, and references
+- `PROMPTS.md` — Copy-paste AI prompt templates
 
 ### Tag formats
 
@@ -43,7 +44,7 @@ Each domain can have these subfolders:
 
 Folder-level tags land in `_inbox.md` inside that folder — a staging area you can sort into named files later. Tags are case-insensitive (`#ai/skills` finds `AI/skills/`).
 
-If a shorthand tag is ambiguous (matches files in both `skills/` and `resources/`), the organiser warns you. Use the explicit form to resolve it.
+Because we only use `skills` and `ideas` as route-able subdirectories, shorthand tags will naturally default into the `skills/` subfolder when auto-created. All other core documentation should be explicitly created at the domain's root.
 
 ## Sorting
 

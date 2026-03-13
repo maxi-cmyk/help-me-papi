@@ -101,3 +101,19 @@
 ### Other
 
 - [Guidelines & Resources](others/guidelines.md)
+
+## tools
+
+### Skills
+
+- [CLI Design & Architecture](tools/skills/cli-design.md)
+- [MCP Server Sandbox](tools/skills/mcp-servers.md)
+
+### Ideas
+
+- [Automation Backlog](tools/ideas/backlog.md)
+
+### Other
+
+- [MCP & CLI Prompts](tools/PROMPTS.md)
+- [Developer Tools Guidelines](tools/guidelines.md)
