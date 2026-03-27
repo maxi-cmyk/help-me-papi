@@ -10,8 +10,6 @@ This skill is a **constraint layer** that works alongside the `frontend-design` 
 
 ## Core Philosophy
 
-> "Good design is as little design as possible." — Dieter Rams
-
 Every interface built should feel like it respects the user's time and attention. The goal is not to impress with volume — it's to make the right action obvious and everything else invisible until needed. 
 
 **Three questions to ask before adding ANY element:**
