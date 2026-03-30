@@ -81,11 +81,18 @@
 
 ### Skills
 
-- [speed optimisation](hardware/skills/SKILLS.md)
+- [Mini Electronics Hardware Skill](hardware/skills/SKILLS.md)
+
+### Ideas
+
+- [Project Ideas](hardware/ideas/project_ideas.md)
 
 ### Other
 
-- [good to know how they work, for info on how to build with them, ask max](hardware/components.md)
+- [Components](hardware/components.md)
+- [Concepts & Math — Reference Sheet](hardware/concepts-and-math.md)
+- [User Profile & Inventory](hardware/inventory.md)
+- [Optimisation & Debugging](hardware/optimisation-and-debugging.md)
 
 ## others
 
