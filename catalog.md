@@ -123,4 +123,5 @@
 ### Other
 
 - [MCP & CLI Prompts](tools/PROMPTS.md)
+- [Data Analysis Skill](tools/data-analysis/skills.md)
 - [Developer Tools Guidelines](tools/guidelines.md)
