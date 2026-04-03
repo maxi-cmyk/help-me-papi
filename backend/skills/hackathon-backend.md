@@ -1,7 +1,6 @@
 ---
 name: hackathon-backend
-
-description: Backend patterns for hackathons and small-scale apps. Use this skill when helping build backend logic for a hackathon project, small app, or prototype — including API routes, auth, database setup, and deployment. Trigger when the user mentions hackathon, prototype, MVP, demo, quick setup, or when the context is clearly small-scale (not enterprise). Covers Next.js (App Router), Python (Flask/FastAPI), Supabase, SQLite, and deployment to Vercel/Railway. This skill prioritizes speed and clarity over scalability. Also trigger when the user is debugging deployment issues, setting up auth quickly, or designing a database schema for a new project.
+description: Backend patterns for hackathons, prototypes, and MVPs. Prioritizes speed, demo-ability, and "boring" tools.
 ---
 
 # Hackathon Backend Practices
