@@ -1,13 +1,22 @@
-# Backend
+# Backend Documentation
 
-Backend architecture and documentation for hackathons and rapid prototyping. 
+This directory contains our highly modular, domain-driven backend documentation. It is rigorously structured to prevent AI context fragmentation when generating node code, databases, or CI pipelines.
 
-## Documentation Structure
+## How to use this folder effectively
 
-The backend documentation is structured into core pillars to prevent context fragmentation:
+To get the most out of this structure when collaborating with an AI, follow this workflow:
 
-- **[`SKILLS.md`](./skills/SKILLS.md)**: The foundational constraint framework for fast, demo-able backends. Read this or provide it as a system prompt to an AI before proposing any architecture changes.
-- **[`architecture-and-api.md`](./architecture-and-api.md)**: The engineering rules. Covers route structuring, the "Vanilla-First" principle, database seeding, and our strict 2-3 table limit rule.
-- **[`deployment-and-auth.md`](./deployment-and-auth.md)**: The DevOps rules. How to deploy to Vercel/Railway in hour one, set up basic Supabase/JWT authentication, and keep the application live.
-- **[`PROMPTS.md`](./PROMPTS.md)**: Copy-paste prompt templates for instructing LLMs to generate feature code or debug complex production errors.
-- **`/ideas`**: Scrappy thoughts, feature notes, and backlog items.
+1. **Attach the Mastery Skill**: When starting a new backend project, always attach the relevant overarching skill file from [`/skills`](./skills) (e.g., `webdev-backend.md` for production architecture or `hackathon-backend.md` for fast Vercel/Supabase prototyping). This gives the AI all constraints for language scaling, deployment, and framework choice.
+2. **Combine with Prompts**: Use the templates in the local `PROMPTS.md` files (like `databases/prompts/prompts.md` or `api-design/prompts/design-and-review.md`) as your initial query. When generating, attach specific domain definitions (e.g. `auth/skills/auth-fundamentals.md`) alongside the prompt so the AI acts flawlessly.
+3. **Modify per Project**: Use these files as a baseline. When you spin up a specialized project that uses non-standard infrastructure, copy and edit the local `decisions.md` directly into that project repository.
+
+## Architecture & Directory Structure
+
+- **[`api-design/`](./api-design/)**: Rules for creating REST vs GraphQL boundaries, Zod validation, and maintaining envelope tracking for error responses. 
+- **[`auth/`](./auth/)**: Strict standards covering OAuth callbacks, session vs. JWT token implementation loops, and cryptographic safety.
+- **[`ci-cd/`](./ci-cd/)**: Vercel vs Railway choices, GitHub actions orchestration, and monorepo release rules.
+- **[`databases/`](./databases/)**: Schemas constraints spanning Prisma/Drizzle implementations to basic row level security constraints.
+- **[`architecture/`](./architecture/)**: Fundamental structuring paradigms like Monoliths vs Microservices.
+- **[`performance/`](./performance/)**: Strict standards for DB queries and edge function latencies.
+- **[`security/`](./security/)**: Rules detailing rate-limiting, edge mitigations and attack deflections.
+- **[`ideas/`](./ideas/)**: Scrappy thoughts, feature notes, and rapid prototyping logs.

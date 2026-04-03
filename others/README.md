@@ -1,3 +1,15 @@
-# Shared
+# Shared / Others Documentation
 
-Cross-domain material reused across frontend, backend, database, deployment, AI, and hackathons.
+This heavily modularized directory houses cross-domain resources uniquely repurposed throughout the codebase. The artifacts inside apply universally to the frontend, backend, deployment workflows, AI generation, and hackathons contexts.
+
+## How to use this folder effectively
+
+When executing a problem scaling across multiple systemic domains, implement this workflow logic:
+
+1. **Attach the Mastery Skill**: Utilize any cross-functional playbook explicitly outlining fundamental architectural limitations applicable spanning the stack. Expose the overarching dependencies immediately.
+2. **Combine with Prompts**: Infuse logic directly sourced here alongside prompts deployed in downstream areas. Unifying system interactions ensures perfectly synchronous functionality between the backend definitions and the frontend constraints.
+3. **Modify per Project**: Iteratively redefine and fork global dependencies listed inside this folder into isolated sub-project folders if a specific application demands heavy deviation from the universal rules.
+
+## Architecture Structure
+
+- Continually expanding core documentation establishing immutable rules for systems, configurations, general workflows, or generic tooling applied system-wide.

@@ -7,10 +7,11 @@
 
 ## Branch protection rules (set on GitHub)
 Go to repo Settings → Branches → Add rule for `main`:
-- ✅ Require status checks to pass before merging
+- Require status checks to pass before merging
   - Select your GitHub Actions job (e.g. `Lint, Type Check, Test`)
-- ✅ Require branches to be up to date before merging
-- ✅ Do not allow bypassing the above settings
+- Require pull request reviews before merging
+- Require branches to be up to date before merging
+- Do not allow bypassing the above settings
 
 This means: if CI fails, the merge button is greyed out. No exceptions.
 

@@ -16,7 +16,7 @@ description: >
 
 ---
 
-## 🔧 Self-Improvement Instructions
+## Self-Improvement Instructions
 
 - **New method used** → add to the appropriate reference table with advantages, drawbacks, and when-to-use.
 - **New pattern confirmed working** → add to the Analysis Checklist.
@@ -26,7 +26,7 @@ description: >
 
 ---
 
-## ✅ Analysis Checklist
+## Analysis Checklist
 > Scan at the start of every analysis response. Flag every applicable item.
 
 | # | Rule | When It Applies |
@@ -46,7 +46,7 @@ description: >
 
 ---
 
-## 📊 Statistical Methods Reference
+## Statistical Methods Reference
 
 ### Non-Parametric Methods (prefer these by default)
 
@@ -73,7 +73,7 @@ description: >
 
 ---
 
-## 🤖 Machine Learning / CV Reference
+## Machine Learning / CV Reference
 
 ### Cross-Validation Guards
 
@@ -117,7 +117,7 @@ Always flag: `neg_r2_folds = (reg_scores['test_r2'] < 0).sum()`
 
 ---
 
-## 🗂️ Notebook Structure Pattern
+## Notebook Structure Pattern
 
 The structure that works well for hardware experiment analysis:
 
@@ -144,7 +144,7 @@ Key principles:
 
 ---
 
-## 🧹 Data Quality Pattern
+## Data Quality Pattern
 
 Standard checks for hardware CSV pipelines:
 
@@ -170,7 +170,7 @@ pd.DataFrame({
 
 ---
 
-## 📚 Libraries (confirmed used)
+## Libraries (confirmed used)
 
 | Library | Purpose | Key Functions |
 |---|---|---|
@@ -182,7 +182,7 @@ pd.DataFrame({
 
 ---
 
-## 📁 Completed Analyses
+## Completed Analyses
 
 | Project | Dataset | Key Findings | Methods Used |
 |---|---|---|---|
@@ -190,7 +190,7 @@ pd.DataFrame({
 
 ---
 
-## ⚠️ Common Mistakes & Fixes
+## Common Mistakes & Fixes
 
 | Mistake | Why It's Bad | Fix |
 |---|---|---|

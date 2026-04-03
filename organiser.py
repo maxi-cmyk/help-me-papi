@@ -400,7 +400,7 @@ def organise(source: Path, root: Path, dry_run: bool, create: bool) -> int:
     if warnings:
         print(f"\n--- warnings ---")
         for w in warnings:
-            print(f"  ⚠ {w}")
+            print(f"  [WARN] {w}")
 
     return 0
 
