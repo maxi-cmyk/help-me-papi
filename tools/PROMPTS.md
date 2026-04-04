@@ -1,36 +1,67 @@
-# MCP & CLI Prompts
+# Tools Agentic Macro Library
 
-Templates to rapidly scaffold internal automation tools.
+> [!IMPORTANT]
+> **HOW TO USE THIS LIBRARY**
+> 1. **Context First**: Always provide the target API documentation or the directory structure of the files you intend to automate.
+> 2. **Safety First**: All destructive CLI tools MUST include a `--dry-run` flag by default.
+> 3. **Validation**: Use `TEST_CLI_TOOL` to verify functionality before deployment.
 
 ---
 
-## Part 1: MCP Server Generation
+### **Stage 1: MCP Server Development**
 
-```text
-I need to build an MCP (Model Context Protocol) Server for my internal APIs. 
+#### **Macro: SCAFFOLD_MCP_SERVER**
+```markdown
+[ROLE] You are an MCP (Model Context Protocol) Specialist.
+[CONTEXT] Analyze the Internal API / Data Source and the preferred stack (TS/Python).
+[TASK] Build a production-ready MCP Server.
 
-**My Stack:** [e.g. TypeScript / Python]
-**Data Source:** [e.g. My custom CMS, my local SQLite file, a 3rd party API]
+[TECHNICAL CONSTRAINTS]
+- Use the official `@modelcontextprotocol/sdk`.
+- Implement clear tool definitions with strict input validation.
+- Standardize error responses to be LLM-readable.
+- Connection: `stdio` (local development).
 
-Please write the complete MCP server code using the official `@modelcontextprotocol/sdk`. 
-1. Define the capabilities (resources, tools, or prompts).
-2. Wire up the generic request handlers.
-3. Show me the exact JSON configuration to add to my Claude/Cursor settings to connect it locally over `stdio`.
+[OUTPUT]
+1. SERVER CODE: The complete logic for the MCP server.
+2. CONFIG JSON: The block to add to Claude/Cursor settings.
+3. USAGE GUIDE: How to invoke the tools from an LLM.
 ```
 
 ---
 
-## Part 2: CLI Generation
+### **Stage 2: Automation & CLI**
 
-```text
-I need a robust CLI tool to automate a repetitive task.
+#### **Macro: GENERATE_AUTOMATION_CLI**
+```markdown
+[ROLE] You are a DevTools Engineer.
+[CONTEXT] Paste the repetitive task description and the environment constraints.
+[TASK] Build a robust, modular CLI tool.
 
-**Language:** [e.g. Python using argparse / Node using Commander]
-**Goal:** [What the script needs to do, e.g. "Rename all .jsx files to .tsx and update imports"]
+[REQUIREMENTS]
+1. FLAGS: Graceful parsing with `--help` and `--version`.
+2. DRY-RUN: A mandatory `--dry-run` flag for all filesystem/API mutations.
+3. LOGGING: Success/Error messages printed to stdout with appropriate exit codes.
+4. MODULARITY: Extract core logic into a library that can be unit tested.
 
-Requirements:
-- Parse command-line flags gracefully (always include a `--help`).
-- Include a `--dry-run` flag so I can preview destructive actions without committing them.
-- Print clear, user-friendly success/error messages to standard output.
-- Use clean, modular functions that I can easily extend later.
+[OUTPUT]
+Return the complete CLI script and a sample command to run it.
+```
+
+---
+
+### **Stage 3: Testing & Debugging**
+
+#### **Macro: TEST_CLI_TOOL**
+```markdown
+[ROLE] You are a QA Automation Engineer.
+[CONTEXT] Paste the CLI script and a set of test cases.
+[TASK] Verify the tool's reliability.
+
+[CHECKLIST]
+- EDGE CASES: What happens with empty inputs or missing files?
+- PERMISSION: Handle read/write permission errors gracefully.
+- IDEMPOTENCY: Does running the tool twice cause issues?
+
+[OUTPUT] A suite of test commands and a report on any unhandled exceptions.
 ```

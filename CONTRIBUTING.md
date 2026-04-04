@@ -26,7 +26,7 @@ Not sure what file this belongs in yet, but it's a frontend skill
 #frontend/skills
 ```
 
-The first two tags route to specific files. The third is a **folder-level tag** — it lands in `frontend/skills/_inbox.md` so you can file it properly later.
+The first two tags route to specific files. The third is a **folder-level tag**  it lands in `frontend/skills/_inbox.md` so you can file it properly later.
 
 Then run the organiser to sort everything:
 
@@ -81,7 +81,7 @@ Multiple contributors:
 <!-- @maxi, @jin, @wei -->
 ```
 
-This isn't about ownership — it's so anyone can quickly find who to ask about a topic. The catalog uses these to build a contributor index.
+This isn't about ownership  it's so anyone can quickly find who to ask about a topic. The catalog uses these to build a contributor index.
 
 ### Content types
 
@@ -110,7 +110,7 @@ Start each file with a `# Title` heading. The catalog uses this as the display n
 | `hardware/` | Hardware-specific notes | |
 | `others/` | Cross-domain patterns, anything that doesn't fit above | |
 
-Fill in the "Who typically owns it" column as you go — it helps newcomers know where to direct questions.
+Fill in the "Who typically owns it" column as you go  it helps newcomers know where to direct questions.
 
 ## What NOT to put in hackathons/
 

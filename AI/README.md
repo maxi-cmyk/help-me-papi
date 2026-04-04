@@ -19,7 +19,10 @@ To govern and optimize interactions with generative interfaces or programmatic M
 
 To rigorously restrict context leakage when leveraging AI models, all elements exist in separated zones:
 
-- **[`skills/`](./skills/)**: Foundational engineering plays, capability directives, and technical standards acting as rule-bounds for AI integration.
-- **[`ideas/`](./ideas/)**: Scratchpad zones for feature hypothesis testing, novel prompt sequences, and experimental loops.
-- **[`guidelines.md`](./guidelines.md)**: Central repository detailing consolidated stack limits, decisions, approved orchestration toolsets, and references.
-- **[`PROMPTS.md`](./PROMPTS.md)**: The execution core containing copy-paste prompt blocks specifically formatted for planning, iterating, and evaluating generative work tasks flawlessly.
+- **[`RAG/`](./RAG/)**: [Skills](./RAG/skills/), [Resources](./RAG/resources/), [Ideas](./RAG/ideas/).
+- **[`ML/`](./ML/)**: [Skills](./ML/skills/), [Resources](./ML/resources/), [Ideas](./ML/ideas/).
+- **[`skills/`](./skills/)**: Foundational engineering plays, capability directives, and technical standards.
+- **[`ideas/`](./ideas/)**: Scratchpad zones for feature hypothesis testing and experimental loops.
+- **[`standards.md`](./standards.md)**: Global AI engineering rules (Token limits, RAG precision).
+- **[`decisions.md`](./decisions.md)**: Model selection and architectural rationales.
+- **[`PROMPTS.md`](./PROMPTS.md)**: The execution core containing copy-paste prompt blocks.

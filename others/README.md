@@ -12,4 +12,11 @@ When executing a problem scaling across multiple systemic domains, implement thi
 
 ## Architecture Structure
 
-- Continually expanding core documentation establishing immutable rules for systems, configurations, general workflows, or generic tooling applied system-wide.
+This domain acts as the catchment area for cross-functional or "unclassifiable" assets:
+
+- **[`prompts/`](./prompts/)**: [Generic Scaffolds](./prompts/scaffolds.md).
+- **[`skills/`](./skills/)**: Universal system playbooks.
+- **[`resources/`](./resources/)**: Common assets and shared templates.
+- **[`ideas/`](./ideas/)**: Miscellaneous project seeds.
+- **[`standards.md`](./standards.md)**: Universal repository rules.
+- **[`decisions.md`](./decisions.md)**: Cross-domain baseline choices.

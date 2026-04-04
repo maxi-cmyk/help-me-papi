@@ -1,62 +1,103 @@
-# AI Prompts
+# Frontend Agentic Macro Library
 
-Copy-paste templates for implementing frontend work or reviewing code with AI. Make sure `skills/SKILLS.md` is provided as system context before using these.
+> [!IMPORTANT]
+> **HOW TO USE THIS LIBRARY**
+> 1. **Context First**: Always provide `skills/SKILLS.md` and the relevant `docs/design.md` as context before running these macros.
+> 2. **Aesthetic Law**: All generations must adhere to the "Clarity-First" design philosophy (high whitespace, semantic HTML, fluid scale).
+> 3. **Validation**: Use the `AUDIT_ACCESSIBILITY` macro on every component before finalization.
 
 ---
 
-## 1. AI Component Generation Template
-Use this when asking an AI to scaffold a new UI component:
+### **Stage 1: Component Scaffolding**
 
-```text
-Please build a [Component Name] component using vanilla HTML, CSS, and JS (or your current framework).
+#### **Macro: SCAFFOLD_UI_COMPONENT**
+```markdown
+[ROLE] You are a Senior Frontend Engineer & UI/UX Specialist.
+[CONTEXT] Analyze the `docs/design.md` and the existing `index.css` variables.
+[PLATFORM] **Claude Code** (Primary execution CLI).
+[PRE-REQUISITES] 
+- Ensure **21st Dev MCP** is connected: `claude mcp add 21st-dev npx -y @21st-dev/mcp`
+- Ensure **Stitch MCP** is connected: `claude mcp add stitch npx -y @_davideast/stitch-mcp proxy`
+[TASK] Build a high-fidelity [Component Name] component.
 
-Constraint Checklist (Strictly Follow):
-1. Aesthetic: Apple-style elegance. Rely on whitespace, fluid scale padding, and subtle borders/shadows over solid colors.
-2. Structure: Use strictly semantic HTML5 tags (nav, section, main, article, button).
-3. Theming: Use CSS custom properties for spacing and colors to allow easy theming. No hard-coded hex colors unless explicitly asked.
-4. Typography: Use native system fonts or 'Inter' with a defined, readable scale and 1.5 line height.
-5. Micro-interactions: Include default, hover, active, and disabled states. Add a subtle, 200ms easing transition to all state changes.
-6. Responsive: Scale constraints down fluidly for mobile. Do NOT simply stack items; re-evaluate the layout for the breakpoint.
+[TECHNICAL CONSTRAINTS]
+- Aesthetic: Apple-style elegance (whitespace, fluid padding, subtle shadows).
+- HTML: Strictly semantic (nav, section, main, article, button).
+- CSS: Custom properties for all spacing/colors. No hard-coded hex.
+- Typography: Inter/System fonts with 1.5 line height.
+- Micro-interactions: 200ms easing transitions for hover/active/focus/disabled states.
+- Responsive: Fluid scaling for mobile (evaluate layout, don't just stack).
 
-Provide the HTML structure first, followed by scoped CSS, and finally any necessary vanilla JS for interactivity.
+[OUTPUT]
+Return semantic HTML, scoped vanilla CSS, and the minimal JS required for interactivity.
 ```
 
 ---
 
-## 2. Accessibility Audit Prompt
-Use this to rigorously check DOM output:
+### **Stage 2: Logic & State**
 
-```text
-Act as a strict WCAG 2.2 auditor. Review the following code snippet for accessibility issues. 
+#### **Macro: IMPLEMENT_STATE_MANAGEMENT**
+```markdown
+[ROLE] You are a State Management Architect.
+[CONTEXT] Paste the component code and the required data flow requirements.
+[TASK] Implement a robust, predictable state management pattern for this feature.
 
-Specifically look for:
-- Missing ARIA labels or incorrect roles.
-- Improper keyboard focus management (is the focus ring visible? does focus get trapped in modals?).
-- Semantic failures (using <div> instead of <button>).
-- Multimodal considerations (can flashing animations be disabled? is contrast AA+ compliant?).
-
-Output a bulleted list of violations and the direct code fix for each.
+[OUTPUT]
+1. STATE DEFINITION: The core data structure.
+2. ACTIONS/REDUCERS: Logic for state transitions.
+3. HOOKS/SELECTORS: Clean API for components to consume state.
+4. PERSISTENCE: (Optional) Logic for `localStorage` or DB syncing.
 ```
 
 ---
 
-## 3. UX & Aesthetic Review Prompt
-Use this when reviewing a new UI implementation (via images, PR, or code). Note: It relies on Nielsen's Heuristics.
+### **Stage 3: Review & Audit**
 
-```text
-Review this UI component or view. Evaluate it strictly against the "Clarity-First" design philosophy and Nielsen's 10 Usability Heuristics. 
+#### **Macro: AUDIT_ACCESSIBILITY**
+```markdown
+[ROLE] You are a strict WCAG 2.2 Auditor.
+[CONTEXT] Paste the HTML/JS snippet of a component.
+[TASK] Identify and fix all accessibility violations.
 
-Checklist for Review:
-1. Nielsen's Heuristics check (especially: Visibility of system status, Match between system and real world, Consistency and standards).
-2. The 5-second rule: Can a user immediately identify the primary Tier 1 action?
-3. Visual Weight: Are secondary actions properly subdued without failing contrast checks?
-4. Whitespace: Is there enough breathing room around interactive targets (min 48px)? Are groups logically separated by space rather than heavy borders?
-5. State Coverage: Does the CSS handle hover, focus-visible, target, active, and disabled states transparently?
+[CHECKLIST]
+- ARIA: Missing labels or incorrect roles.
+- FOCUS: Keyboard focus visibility and trap management (especially for modals).
+- SEMANTICS: Incorrect tag usage (e.g., div instead of button).
+- MULTIMODAL: Contrast (AA+) and animation reduction support.
 
-Provide a list of "Must Fix", "Should Fix", and "Nitpicks". 
+[OUTPUT] A bulleted list of violations and the exact code refactor for each.
 ```
 
----
+#### **Macro: SCAFFOLD_FEATURE**
+```markdown
+[ROLE] You are a Senior Fullstack Engineer.
+[PLATFORM] **Claude Code** (Primary execution CLI).
+[PRE-REQUISITES]
+- `claude mcp add 21st-dev npx -y @21st-dev/mcp`
+- `claude mcp add stitch npx -y @_davideast/stitch-mcp proxy`
+[TASK] Scaffold a new feature or API integration into the `features/` directory.
+
+[STEPS]
+1. Create `features/[name]/types.ts` for domain interfaces.
+2. Create `lib/[name]-client.ts` for the API singleton.
+3. Implement `features/[name]/actions.ts` for server logic (Supabase, OpenAI, etc.).
+4. Add demo-safe error handling (toasts, not crashes) tailored for a live demo.
+
+[OUTPUT] Confirm the structure follows the "Feature-First" architecture.
+```
+
+#### **Macro: REVIEW_UX_HEURISTICS**
+```markdown
+[ROLE] You are a UX Strategist.
+[CONTEXT] Analyze the UI implementation against Nielsen's 10 Heuristics.
+[TASK] Provide a critique focused on "Clarity-First" and usability.
+
+[REVIEW CRITERIA]
+1. Visibility of system status (loading/success feedback).
+2. The 5-second rule: Is the Tier 1 action immediately obvious?
+3. Visual Weight: Are secondary actions properly subdued?
+4. Breathing Room: Is there at least 48px of whitespace around interactive targets?
+5. Run against Nielsen's heuristics.
 
 ### Reference: Nielsen's 10 Usability Heuristics
 When the AI generates reviews or UX plans based on the prompt above, it is evaluating against these definitions:
@@ -71,3 +112,6 @@ When the AI generates reviews or UX plans based on the prompt above, it is evalu
 8. **Aesthetic and minimalist design:** Interfaces should not contain information that is irrelevant or rarely needed.
 9. **Help users recognize, diagnose, and recover from errors:** Error messages should be in plain language and offer a solution.
 10. **Help and documentation:** Provide contextual, easily searchable help focused on the user's task.
+
+[OUTPUT] Ranked list of "Must Fix", "Should Fix", and "Nitpicks".
+```

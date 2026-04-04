@@ -28,10 +28,10 @@ Frontend patterns optimized for maintainability, clean collaboration across deve
 
 ```
 Are we building an SEO-sensitive application or a full-stack monolithic app?
-├── Yes → Next.js App Router + Tailwind + Shadcn UI
-└── No (It's a pure single page application behind a login wall)
-    ├── Does it require crazy client-side performance? → Vite + React + Tailwind
-    └── Something else → Evaluate based on team familiarity (Remix, Astro)
+ Yes  Next.js App Router + Tailwind + Shadcn UI
+ No (It's a pure single page application behind a login wall)
+     Does it require crazy client-side performance?  Vite + React + Tailwind
+     Something else  Evaluate based on team familiarity (Remix, Astro)
 ```
 
 ---

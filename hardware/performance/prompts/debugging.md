@@ -15,7 +15,7 @@ Check the main `loop()`. Are there blocking calls over 5s? Implement `vTaskDelay
 The inputs are completely erratic and sensors are failing sporadically. 
 1. Check the code for unconnected inputs. Are we strictly applying `INPUT_PULLUP` or pulling pins HIGH/LOW manually? Floating pins ruin state logic.
 2. Ensure you have commanded a Common GND block. Check the logic to verify all components definitely share GND with the ESP32 array itself.
-3. Check the HTTP polling route. The browser charts feel stuttery—adjust `genDelay` to sync deeply with the frontend poll interval (150ms).
+3. Check the HTTP polling route. The browser charts feel stutteryadjust `genDelay` to sync deeply with the frontend poll interval (150ms).
 ```
 
 ## Compilation / Multi-file Linker Chaos

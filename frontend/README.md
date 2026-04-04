@@ -9,8 +9,9 @@ When building for a hackathon, prioritize **The First Impression** and **Landing
 - **Aesthetics**: Use high-impact visual trends like **Glassmorphism**, **Smooth Gradients**, and **Dark mode** to wow judges instantly.
 - **Components**: Use Radix UI, Shadcn/UI, or Headless UI to move fast without sacrificing quality. Avoid building complex UI from scratch.
 - **State**: Use React Query (TanStack Query) for simple data fetching and local state (Zustand) over complex Redux. 
-- **Micro-interactions**: Spend 15 minutes on smooth hover effects and transitions—it makes the app feel premium.
-- **LLM Usage**: Attach `hackathon-frontend.md` and your aesthetic choice from `/design-inspos` to your prompt.
+- **Micro-interactions**: Spend 15 minutes on smooth hover effects and transitionsit makes the app feel premium.
+- **Workflow**: Use [Stitch MCP + 21st.dev](./tooling/stitch-workflow.md) for ultra-fast design-to-code generation.
+- **LLM Usage**: Attach [design-generation.md](./skills/design-generation.md) and your aesthetic choice from `/design-inspos` to your prompt.
 
 ---
 
@@ -49,7 +50,7 @@ Our frontend approach heavily prioritizes an **elegant, Apple-like, Clarity-Firs
 
 To get the most out of this structure when collaborating with an AI, follow this workflow:
 
-1. **Attach the Mastery Skill**: When starting a new feature, always attach the relevant file from [`/skills`](./skills) (e.g., `startup-frontend.md` or `hackathon-frontend.md`).
+1. **Attach the Mastery Skill**: When starting a new feature, always attach the relevant file from [`/skills`](./skills) (e.g., `startup-frontend.md` or `../hackathons/skills/frontend.md`).
 2. **Combine with Prompts**: Use the templates in [`PROMPTS.md`](./PROMPTS.md) or domain-specific `prompts/` folders.
 3. **Modify per Project**: Use these as a baseline. For a specific theme (e.g., Cyberpunk), update the local definitions in `design-inspos/`.
 
@@ -59,18 +60,20 @@ To get the most out of this structure when collaborating with an AI, follow this
 
 To prevent context fragmentation when using AI, every domain follow a strict modular structure:
 `domain/`
-├── `skills/` — Domain-specific fundamentals and best practices.
-├── `prompts/` — Robust, token-efficient scaffolds for AI generation.
-├── `resources/` — Curated links, libraries, and design inspiration.
-├── `ideas/` — Scrappy thoughts and UI experiments.
-├── `standards.md` — Hard rules for the domain (e.g., 60fps rule).
-└── `decisions.md` — Architectural choices and justifications.
+ `skills/`  Domain-specific fundamentals and best practices.
+ `prompts/`  Robust, token-efficient scaffolds for AI generation.
+ `resources/`  Curated links, libraries, and design inspiration.
+ `ideas/`  Scrappy thoughts and UI experiments.
+ `standards.md`  Hard rules for the domain (e.g., 60fps rule).
+ `decisions.md`  Architectural choices and justifications.
 
 ### Domains:
-- **[`architecture/`](./architecture/)**: Routing logic, FSD structure, and backend integration.
-- **[`design-inspos/`](./design-inspos/)**: Aesthetic source of truth (Glassmorphism, Typography, Themes).
-- **[`performance/`](./performance/)**: Engineering standards to eliminate jank (60fps, CLS prevention).
-- **[`ui-ux/`](./ui-ux/)**: UX heuristics, focal points, and accessibility rules.
-- **[`tooling/`](./tooling/)**: Functional library choices (Radix, React Aria, Tailwind).
+- **[`architecture/`](./architecture/)**: [Skills](./architecture/skills/), [Resources](./architecture/resources/), [Ideas](./architecture/ideas/).
+- **[`design-inspos/`](./design-inspos/)**: [Skills](./design-inspos/skills/), [Resources](./design-inspos/resources/), [Ideas](./design-inspos/ideas/).
+- **[`performance/`](./performance/)**: [Skills](./performance/skills/), [Ideas](./performance/ideas/).
+- **[`ui-ux/`](./ui-ux/)**: [Skills](./ui-ux/skills/), [Resources](./ui-ux/resources/), [Ideas](./ui-ux/ideas/).
+- **[`tooling/`](./tooling/)**: [Skills](./tooling/skills/), [Stitch Workflow](./tooling/stitch-workflow.md), [Resources](./tooling/resources/).
 - **[`ideas/`](./ideas/)**: Cross-domain brainstorming and UI experiments.
-- **[`PROMPTS.md`](./PROMPTS.md)**: Master prompt templates for consistent generation.
+- **[`PROMPTS.md`](./PROMPTS.md)**: Frontend prompt templates.
+- **[`standards.md`](./standards.md)**: Global frontend engineering rules.
+- **[`decisions.md`](./decisions.md)**: Functional justifications.

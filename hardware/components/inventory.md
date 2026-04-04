@@ -3,13 +3,13 @@
 ## User Profile
 
 ### Platforms (confirmed used)
-- **ESP32** — primary microcontroller
-- **Arduino Uno R3** — secondary, used for simpler/standalone projects
+- **ESP32**  primary microcontroller
+- **Arduino Uno R3**  secondary, used for simpler/standalone projects
 
 ### Components (confirmed used)
 | Component | Protocol | Notes |
 |---|---|---|
-| MAX7219 4-in-1 LED matrix (32×8) | SPI | Main display; always use frame buffer approach |
+| MAX7219 4-in-1 LED matrix (328) | SPI | Main display; always use frame buffer approach |
 | INMP441 microphone | I2S | 24-bit left-justified; L/R pin must never float |
 | MPU-6050 IMU | I2C | Always calibrate offsets before use |
 | PIR sensor | Digital GPIO | Motion detection |
@@ -19,7 +19,7 @@
 | Tilt switch (ball type) | Digital GPIO | INPUT_PULLUP + debounce always needed |
 | LCD display | I2C / parallel | Text display |
 | Push buttons | Digital GPIO | Always debounce |
-| Decoupling capacitors | Power | 100nF ceramic + 10µF electrolytic per IC |
+| Decoupling capacitors | Power | 100nF ceramic + 10F electrolytic per IC |
 | Potentiometer | Analog GPIO | Used for runtime-tunable parameters (e.g. seed density); always `analogRead()` into a mapped range |
 
 ### Software / Libraries (confirmed used)

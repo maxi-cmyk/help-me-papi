@@ -1,54 +1,68 @@
 # help-me-papi
 
-A modular, domain-driven framework for rapid prototyping and high-standard software development. This repository is strictly organized to prevent AI context fragmentation and to provide a "choose-your-own-adventure" setup for different engineering goals.
+A high-velocity, domain-driven framework designed specifically for **Agentic Development** (AI + Human pair programming). This repository is structured to be a "plug-and-play" brain for Claude Code and other agentic IDEs, ensuring speed and consistency across all project phases.
 
 ---
 
-## Development Paths
+##  The Agentic Workflow
 
-Select the focus area that matches your project goals to bias the generation and standards appropriately.
+Instead of writing code from scratch, you **Chain Macros**. Each domain folder contains a `PROMPTS.md` with standardized macros in the `[ROLE]` / `[TASK]` / `[OUTPUT]` format.
 
-### Hackathon Focus
-**Goal: Speed over Perfection**
-Prioritize time-to-ship, feature velocity, and "Visual Wow". Leverage managed services (Supabase, Clerk) and high-impact UI trends (Glassmorphism, gradients) to deliver a polished MVP in hours.
-
-### Webdev Focus
-**Goal: Production Standards**
-Focus on long-term maintainability, SEO, and architectural performance. Adhere to Feature-Sliced Design (FSD), strict accessibility compliance (WCAG AA), and robust CI/CD pipelines.
-
-### Startup Focus
-**Goal: Growth and Scalability**
-Optimized for iterative growth, observability, and reliable scale. Includes standards for security-first architecture (OWASP), background job management, and deep analytics integration.
+1.  **STRATEGY Phase**: Use `hackathons/PROMPTS.md` -> `IDENTIFY_PERSONA` and `IDEATE_PROJECT`.
+2.  **SCAFFOLD Phase**: Use domain-specific macros like `SCAFFOLD_UI_COMPONENT` (Frontend) or `SCAFFOLD_FEATURE` (Hackathons).
+3.  **POLISH Phase**: Use `AUDIT_UI_CLARITY` or `REVIEW_UX_HEURISTICS` to refine the output.
 
 ---
 
-## AI-First Workflow
+##  Repository Directory
 
-To use this repository effectively as an AI pair programmer, follow this three-step execution loop:
+Every domain follows the same cohesive, non-repetitive structure:
 
-1. **Attach Mastery Skill**: At the start of a project, attach the relevant master skill file from the domain's `/skills` folder (e.g., `frontend/skills/startup-frontend.md`) to establish high-level architectural boundaries.
-2. **Attach Domain Context**: When working on specific features, include the `standards.md`, `decisions.md`, and `skills/` files from that domain folder.
-3. **Use Scaffold Prompts**: Use the token-efficient, context-aware prompt templates located in each domain's `prompts/` directory to ensure accurate generation.
+###  [Hackathons](./hackathons/)
+*   **`PROMPTS.md`**: Strategic macros for ideation, scaffolding, and pitching.
+*   **[`strategy-and-resources.md`](./hackathons/strategy-and-resources.md)**: The "Battle Plan" from T-minus 2 hours setup to the final pitch.
+*   **`skills/`**: Centralized hackathon toolkits ([`backend.md`](./hackathons/skills/backend.md), [`frontend.md`](./hackathons/skills/frontend.md), [`hackathon-strategy.md`](./hackathons/skills/hackathon-strategy.md)).
+*   **`docs/`**: High-level hackathon standards and pitch resources.
+
+###  [Frontend](./frontend/)
+*   **`PROMPTS.md`**: UI/UX specialist macros including component scaffolding.
+*   **`docs/`**: Standards for Clarity-First design, Design System variables, and Tooling (Claude Code/Stitch/21st Dev).
+*   *Standards: Whitespace-first, Semantic HTML, Token-based CSS.*
+
+###  [Backend](./backend/)
+*   **`PROMPTS.md`**: System design and API scaffolding macros.
+*   **`docs/`**: Standards for API (Rest/GQL), Database (Supabase/Postgres), and Auth (Clerk).
+*   *Standards: Security-first, modular service layers, explicit error envelopes.*
+
+###  [AI & RAG](./AI/)
+*   **`PROMPTS-ML.md` / `PROMPTS-RAG.md`**: Specialized macros for model selection and vector search pipelines.
+*   **`docs/`**: Standards for prompt engineering and RAG architecture.
+
+###  [Tools & MCP](./tools/)
+*   **`docs/`**: Manuals for **Stitch MCP** (CSS sync) and **21st Dev MCP** (Component sourcing).
 
 ---
 
-## Repository Structure
+##  Setup & Execution
 
-The repository is split into specialized domains, each following a standardized modular architecture:
+### Pre-Hackathon Checklist
+Ensure your agent is equipped with the right tools before starting:
+- **21st Dev**: `claude mcp add 21st-dev npx -y @21st-dev/mcp`
+- **Stitch**: `claude mcp add stitch npx -y @_davideast/stitch-mcp proxy`
 
-- **`frontend/`**: UI-UX heuristics, design inspirations, performance, and architecture.
-- **`backend/`**: API design, authentication, databases, security, and CI-CD.
-- **`hardware/`**: Firmware architecture, low-level math, components, and performance.
-- **`hackathons/`**: Speed strategy, pitch planning, and high-velocity setups.
-- **`AI/`**: RAG implementation and machine learning flow documentation.
-- **`tools/`**: Automation scripts and Model Context Protocol (MCP) servers.
-- **`others/`**: Shared Cross-domain resources and generic patterns.
+### The "Feature-First" Rule
+All projects must follow the `features/[name]/` architecture. 
+- `types.ts`: Domain interfaces.
+- `actions.ts`: Server-side logic.
+*This prevents AI context fragmentation and makes deployment atomic.*
 
 ---
 
-## Knowledge Management
-
-This repository uses a sorting CLI to manage knowledge intake and documentation indexing.
+##  Knowledge Management
+This repo is a living library.
+- **Standards**: Move proven patterns into the `domain/docs/` folder.
+- **Skills**: Add tactical "how-to" files into the `domain/skills/` folder.
+- **Ideas**: Draft project backlogs in `domain/ideas/`.
 
 ### 1. The Inbox
 Drop raw notes or snippets into `inbox.md`. Tag each block with a categorical comment on the first line:

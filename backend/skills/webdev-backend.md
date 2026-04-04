@@ -30,12 +30,12 @@ Help the user architect the startup stack:
 
 ```
 Is the frontend Next.js?
-├── Yes
-│   ├── Is it highly relational/structured data? → Next.js App Router + Postgres (Neon/Supabase) + Drizzle/Prisma + Vercel
-│   └── Is it a purely real-time/sync heavy app? → Next.js + Convex or Supabase Realtime
-└── No (e.g. React SPA, Mobile App, or Heavy background processing)
-    ├── Does it require intensive background workers/AI? → Separate FastAPI/NodeJS Backend + Railway/Render + BullMQ/Celery
-    └── Is it a standard CRUD / SaaS API? → NestJS or Express/Fastify + TypeScript + Postgres
+ Yes
+    Is it highly relational/structured data?  Next.js App Router + Postgres (Neon/Supabase) + Drizzle/Prisma + Vercel
+    Is it a purely real-time/sync heavy app?  Next.js + Convex or Supabase Realtime
+ No (e.g. React SPA, Mobile App, or Heavy background processing)
+     Does it require intensive background workers/AI?  Separate FastAPI/NodeJS Backend + Railway/Render + BullMQ/Celery
+     Is it a standard CRUD / SaaS API?  NestJS or Express/Fastify + TypeScript + Postgres
 ```
 
 ---
@@ -46,8 +46,8 @@ Is the frontend Next.js?
 
 ```
 app/api/
-├── [resource]/
-│   ├── route.ts          # Purely handles HTTP (req/res)
+ [resource]/
+    route.ts          # Purely handles HTTP (req/res)
 ```
 
 The route handler is intentionally "thin":
@@ -94,10 +94,10 @@ export function apiError(message: string, status = 400, details?: any) {
 
 ```
 Do you want to own your auth data locally?
-├── Yes (Need full control over DB users table) → Auth.js (NextAuth) or Lucia Auth
-└── No (Happy to outsource to managed service)
-    ├── Need enterprise features (SAML, B2B)? → Clerk or WorkOS
-    └── Need deep Postgres integration with RLS? → Supabase Auth
+ Yes (Need full control over DB users table)  Auth.js (NextAuth) or Lucia Auth
+ No (Happy to outsource to managed service)
+     Need enterprise features (SAML, B2B)?  Clerk or WorkOS
+     Need deep Postgres integration with RLS?  Supabase Auth
 ```
 
 ### Production Auth Essentials
@@ -119,9 +119,9 @@ Do you want to own your auth data locally?
 
 ```
 Are you using Postgres? (You should be.)
-├── Need fully serverless + branch previews? → Neon
-├── Need built-in Auth + Realtime + RLS? → Supabase
-└── Need heavy analytics/reporting? → ClickHouse (Separate from Postgres)
+ Need fully serverless + branch previews?  Neon
+ Need built-in Auth + Realtime + RLS?  Supabase
+ Need heavy analytics/reporting?  ClickHouse (Separate from Postgres)
 ```
 
 ### Schema Rules for Production
@@ -190,19 +190,19 @@ For a robust startup backend in Next.js, use a domain-driven or layered structur
 
 ```
 app/
-├── api/
-│   └── [domain]/route.ts       # Thin controllers
+ api/
+    [domain]/route.ts       # Thin controllers
 src/ (or lib/)
-├── db/
-│   ├── schema.ts               # Drizzle/Prisma schema
-│   └── index.ts                # DB connection/pool
-├── services/
-│   └── [domain].ts             # Core business logic (e.g., paymentService.ts)
-├── validation/
-│   └── [domain].schema.ts      # Zod schemas
-└── utils/
-    ├── api-handler.ts          # Global error wrappers
-    └── logger.ts               # Structured logging
+ db/
+    schema.ts               # Drizzle/Prisma schema
+    index.ts                # DB connection/pool
+ services/
+    [domain].ts             # Core business logic (e.g., paymentService.ts)
+ validation/
+    [domain].schema.ts      # Zod schemas
+ utils/
+     api-handler.ts          # Global error wrappers
+     logger.ts               # Structured logging
 ```
 
 Keep business logic completely decoupled from Next.js logic. You should be able to call a service function from an API route, a script, or a background cron job without modifying the service itself.

@@ -12,10 +12,13 @@ To get the most out of this structure when collaborating with an AI (or onboardi
 
 ## Architecture & Directory Structure
 
-To maximize contextual understanding and streamline automation generation, everything is segmented into domains:
+To maximize contextual understanding and developer efficiency, we segment the Repository Engine Room as follows:
 
-- **[`skills/`](./skills/)**: Foundational playbooks defining exactly how internal CLI tooling and MCP server architecture should be shaped.
-- **[`data-analysis/`](./data-analysis/)**: Dedicated playbooks for structuring statistical tests, ML boundary guards, and rapid analytical experiment evaluation.
-- **[`ideas/`](./ideas/)**: Scrappy logs mapping repetitive system processes you encounter that should be ultimately automated across the system loop.
-- **[`guidelines.md`](./guidelines.md)**: A monolithic consensus defining exactly what automation stack paradigms exist (e.g., leveraging specific NodeJS utilities against Python `argparse`).
-- **[`PROMPTS.md`](./PROMPTS.md)**: Instantly deployable prompt macros mapped to scaffold tools instantaneously when fed into AI generation constraints.
+- **[`mcp-servers/`](./mcp-servers/)**: [Skills](./mcp-servers/skills/), [Resources](./mcp-servers/resources/).
+- **[`cli-tooling/`](./cli-tooling/)**: [Skills](./cli-tooling/skills/), [Resources](./cli-tooling/resources/).
+- **[`skills/`](./skills/)**: Foundational playbooks for repository automation and orchestration.
+- **[`skills/`](./skills/)**: Foundational playbooks for internal CLI and MCP architecture.
+- **[`ideas/`](./ideas/)**: Scrappy logs mapping repetitive system processes.
+- **[`standards.md`](./standards.md)**: Global tools engineering rules (Python vs Node, CLI flags).
+- **[`decisions.md`](./decisions.md)**: Automation stack justifications.
+- **[`PROMPTS.md`](./PROMPTS.md)**: Instantly deployable prompt macros for tool scaffolding.

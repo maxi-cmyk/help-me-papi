@@ -1,139 +1,102 @@
-# PROMPTS
-Copy-paste templates to instruct LLMs on how to write code for your backend or debug complex runtime errors. Make sure `skills/SKILLS.md` is provided as system context before using these.
+# Backend Agentic Macro Library
+
+> [!IMPORTANT]
+> **HOW TO USE THIS LIBRARY**
+> 1. **Context First**: Always provide `skills/SKILLS.md` and your current `docs/techStack.md` as context before running these macros.
+> 2. **Chained Development**: Use the output of `ARCHITECT_DATABASE` to feed into `SCAFFOLD_API_ROUTE`.
+> 3. **Validation**: Every macro includes a mandatory "Verification" step to ensure runtime stability.
 
 ---
 
-## AI Implementation Templates
-Use these to generate feature code fast. Fill in the brackets before prompting.
+### **Stage 1: Foundation & Schema**
 
-### Scaffold a New API Route
-```text
-Create a new API route for my app.
+#### **Macro: ARCHITECT_DATABASE**
+```markdown
+[ROLE] You are a Senior Database Architect.
+[CONTEXT] Analyze the `docs/PRD.md` and `docs/techStack.md`.
+[TASK] Design a scalable, performant database schema for the project's core entities.
 
-**Stack:** [e.g. Next.js App Router / Flask / FastAPI]
-**Language:** JavaScript (unless I say otherwise)
-**Resource:** [e.g. projects, tasks, submissions]
-**Operations needed:** [e.g. list all, get one, create, update, delete]
+[CONSTRAINTS]
+- Database: Supabase (PostgreSQL).
+- Keep the schema flat where possible.
+- Use JSON columns for flexible/extensible data.
+- Max 3-5 tables for the MVP.
 
-**Fields:**
-- [field name] — [type and any constraints, e.g. "name — string, required"]
-
-**Auth:** [is this route protected? should it filter by logged-in user?]
-**Database:** [Supabase / SQLite / other]
-
-Give me:
-1. The route handler file(s) with input validation
-2. The service/query functions (keep DB logic separate from handler)
-3. The SQL schema
-4. A quick curl test to verify
-
-Keep it simple. No pagination, no rate limiting, no middleware. JavaScript, not TypeScript.
-```
-
-### Add Auth to an Existing App
-```text
-I need to add authentication to my app.
-
-**Stack:** [e.g. Next.js + Supabase / Flask + JWT]
-**What exists already:** [routes, pages, database tables]
-**Auth requirements:**
-- Sign up method: [email+password / OAuth]
-- What needs protecting: [which routes need login]
-- User data needed: [email, name, role?]
-
-**Current file structure (relevant bits):**
-[paste the key files]
-
-Give me:
-1. Auth client setup
-2. Sign up / login functions
-3. Middleware route protection
-4. How to get the current user in any route
-
-Wire it into my existing code — show me what to add and exactly where.
-```
-
-### Set Up the Database
-```text
-I need to set up the database for my project.
-
-**Database:** [Supabase / SQLite]
-**App purpose:** [e.g. users submit projects and vote]
-**Main entities:** [users, projects, votes]
-
-**For each entity, what I know so far:**
-- [entity]: [fields and relationships]
-
-Give me:
-1. The full SQL schema (CREATE TABLE statements)
-2. Supabase RLS policies (if applicable)
-3. The query functions I'll need
-4. A seed script with realistic demo data
-
-Keep the schema flat. Use JSON columns for flexible data. 2-3 tables max.
+[OUTPUT]
+1. SQL Schema: `CREATE TABLE` statements with proper indexing.
+2. RLS POLICIES: Row Level Security rules for each table.
+3. SEED SCRIPT: A robust `seed.sql` with realistic demo data.
+4. DIAGRAM: A mermaid.js ERD for visualization.
 ```
 
 ---
 
-## AI Debugging Templates
-Use these when something is broken in production or local development.
+### **Stage 2: API & Logic**
 
-### "Works locally but not deployed"
-```text
-Something works on localhost but is broken on the deployed version. Help me debug.
+#### **Macro: SCAFFOLD_API_ROUTE**
+```markdown
+[ROLE] You are a Backend Engineer.
+[CONTEXT] Analyze the Database Schema and the `features/` directory structure.
+[TASK] Scaffold a new API route for a specific resource.
 
-**Stack:** [e.g. Next.js + Supabase + Vercel]
-**What works locally:** [describe the feature]
-**What happens in production:** [blank page, error, 500, loading forever]
-**Error messages:** [paste any Vercel logs, network tab outputs, etc.]
+[INPUT]
+- Resource: [e.g. projects, tasks]
+- Operations: [e.g. GET, POST, DELETE]
+- Auth Required: [Yes/No]
 
-Check these in order and tell me which is most likely:
-1. Missing environment variables in production scope
-2. Edge runtime vs Node runtime mismatch
-3. Hardcoded localhost URLs in the code
-4. OAuth redirect URLs mismatching domains
-5. API route timeout limits
+[STEPS]
+1. SCHEMA VALIDATION: Use `zod` or equivalent for input validation.
+2. SERVICE LAYER: Write the query functions in a separate service file.
+3. HANDLER: Implement the route handler with proper error status codes.
+4. AUTH: Implement user-ID filtering if the route is protected.
 
-Tell me exactly what to check and where.
+[OUTPUT]
+Return the code for the handler, service, and a `curl` test command.
 ```
 
-### "API route returns 500 Error"
-```text
-I'm getting a 500 error from an API route. Help me find the problem.
+#### **Macro: AUTH_INTEGRATION**
+```markdown
+[ROLE] You are a Security Engineer.
+[CONTEXT] Analyze the existing middleware and auth client setup.
+[TASK] Wire authentication into a new or existing module.
 
-**Stack:** [e.g. Next.js App Router]
-**Route:** [e.g. POST /api/projects]
-**Request body sent:** [paste JSON]
-**What actually happens:** [500 error]
-
-**Server logs / output:**
-[paste terminal/Vercel logs]
-
-**The route handler code:**
-[paste the full route handler]
-
-Walk through the code line by line and identify the failure. If logs are vague, tell me exactly where to add console.log statements to narrow it down.
+[OUTPUT]
+1. AUTH CLIENT: Setup code for Supabase/JWT.
+2. MIDDLEWARE: Route protection logic with redirect handling.
+3. HOOKS: A `useAuth` or `getServerUser` helper for session access.
+4. SIGNUP/LOGIN: Production-ready forms and state handling.
 ```
 
-### "Database query returns wrong data"
-```text
-A database query isn't returning what I expect. Help me debug.
+---
 
-**Database:** [Supabase Postgres / SQLite]
-**What I'm querying:** [table, conditions]
-**What I actually get:** [empty array, null, error]
+### **Stage 3: Diagnostics & Optimization**
 
-**The query code:**
-[paste Supabase client call or raw SQL]
+#### **Macro: DEBUG_RUNTIME_ERROR**
+```markdown
+[ROLE] You are a Debugging Specialist (SRE).
+[CONTEXT] Paste the error logs (Vercel/Terminal) and the failing code block.
+[TASK] Perform a root-cause analysis and provide a fix.
 
-**The table schema:**
-[paste CREATE TABLE]
+[DIAGNOSTIC CHECKLIST]
+1. ENV VARS: Check for missing secrets in the current scope.
+2. RUNTIME: Check for Edge vs Node mismatch.
+3. NETWORK: Inspect for hardcoded localhost URLs or CORS issues.
+4. DATABASE: Check RLS policy violations or connection timeouts.
 
-**Error output:** [paste any errors]
+[OUTPUT] A step-by-step fix and a `console.log` strategy to prevent recurrence.
+```
 
-Check:
-1. Is RLS enabled and blocking the query? (Are we passing `auth.uid()`?)
-2. Are filter conditions missing case-sensitivity checks?
-3. Am I using `.single()` when multiple rows exist?
-4. Am I failing to check the `error` object?
+#### **Macro: OPTIMIZE_PERFORMANCE**
+```markdown
+[ROLE] You are a Performance Engineer.
+[CONTEXT] Paste the slow query or handler code.
+[TASK] Reduce latency and improve throughput.
+
+[CHECKLIST]
+1. INDEXING: Suggest missing Postgres indexes.
+2. CACHING: Implement Vercel Data Cache or Redis.
+3. FETCHING: Fix N+1 query problems.
+4. PAYLOAD: Minimize JSON response sizes.
+
+[OUTPUT] Refactored code + a "Before vs After" latency estimate.
 ```

@@ -12,12 +12,16 @@ To get the most out of this structure when collaborating with an AI (or onboardi
 
 ## Architecture & Documentation Structure
 
-- **[`skills/SKILLS.md`](./skills/SKILLS.md)**: The foundational constraint framework and self-improvement instructions for AI interaction in hardware contexts. 
-- **[`inventory.md`](./inventory.md)**: User profile mapping existing platforms, confirmed used components, libraries, and a record of completed hardware projects.
-- **[`optimisation-and-debugging.md`](./optimisation-and-debugging.md)**: Hardware optimisation reminders and a crucial debugging checklist for spotting I2C hanging or memory bounds hits. 
-- **[`concepts-and-math.md`](./concepts-and-math.md)**: Quick reference sheet for bitmask logic, hardware-specific math (like Shannon entropy), and structural patterns.
-- **[`components.md`](./components.md)**: A catalog of expected components with analogies to familiar parts for easy learning loops when asking the AI to expand contexts.
-- **[`ideas/project_ideas.md`](./ideas/project_ideas.md)**: Scrappy thoughts, feature notes, and project experiments ordered by relevance to the existing skill set.
+To prevent context fragmentation, the hardware domain is split into specialized modules:
+
+- **[`architecture/`](./architecture/)**: [Skills](./architecture/skills/), [Resources](./architecture/resources/), [Ideas](./architecture/ideas/).
+- **[`math/`](./math/)**: Signal processing, FFT logic, and bitmask standards.
+- **[`components/`](./components/)**: Datasheets, pinouts, and physical component references.
+- **[`performance/`](./performance/)**: Power management, memory bounds, and 60fps firmware rules.
+- **[`skills/`](./skills/)**: Foundations, debugging checklists, and AI-interaction constraints.
+- **[`ideas/`](./ideas/project_ideas.md)**: Scrappy thoughts and hardware experiments.
+- **[`standards.md`](./standards.md)**: Global hardware engineering rules.
+- **[`decisions.md`](./decisions.md)**: Hardware architectural choices.
 
 ## Reference Resources
 - ESP32 technical reference: https://docs.espressif.com/projects/esp-idf/en/latest/

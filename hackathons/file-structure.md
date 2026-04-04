@@ -1,37 +1,53 @@
-# Hackathon Project File Structure
+# Recommended Hackathon Project Structure
 
-A recommended full-stack project structure for hackathons. This combines the "speed-first" backend principles with the scalable frontend structure. This assumes a **monolithic Next.js repository**, which is the fastest way to get a live URL and skip CORS/Vercel split-deployment headaches.
+To maintain speed and clarity, follow this Next.js + Supabase structure for all hackathon projects.
 
-## The Structure (Next.js App Router)
+---
+
+### **Directory Structure**
 
 ```text
 src/
-├── app/                  # Routing layer (Frontend Pages & Backend API)
-│   ├── (auth)/           # Route groups for UI layouts 
-│   ├── api/              # Backend API Routes
-│   │   └── [resource]/   # e.g., /api/projects/route.ts
-│   ├── dashboard/        # Frontend feature routes
-│   ├── layout.tsx        # Root layout
-│   └── globals.css       # Global stylesheet
-├── components/           # Shared UI components
-│   ├── ui/               # Base design system (buttons, inputs, cards)
-│   └── layout/           # Shared parts (navbar, footer, sidebar)
-├── features/             # Domain-specific modules
-│   └── projects/         # E.g., everything related to "Projects"
-│       ├── components/   # UI logic specific only to this domain
-│       ├── hooks/        # Data-fetching hooks (e.g., SWR / React Query)
-│       └── utils/        # Domain-specific frontend helpers
-├── lib/                  # Shared Utilities (Backend & Frontend)
-│   ├── db/               # Database schemas and connection logic
-│   ├── supabase/         # Supabase client singletons (browser & server)
-│   └── utils.ts          # Generic helpers (like shadcn/ui class merging)
-├── scripts/              # Useful runner scripts
-│   └── seed.ts           # Script to quickly seed database with demo data
-└── middleware.ts         # Centralized route protection (Auth)
+ app/                  # Routing layer (Frontend Pages & Backend API)
+    (auth)/           # Route groups for UI layouts 
+    api/              # Backend API Routes
+       [resource]/   # e.g., /api/projects/route.ts
+    dashboard/        # Frontend feature routes
+    layout.tsx        # Root layout
+    globals.css       # Global stylesheet
+ components/           # Shared UI components
+    ui/               # Base design system (buttons, inputs, cards)
+    layout/           # Shared parts (navbar, footer, sidebar)
+ features/             # Domain-specific modules (Feature-based architecture)
+    example-feature/  # Everything related to a specific domain
+        components/   # UI logic specific only to this domain
+        hooks/        # Data-fetching hooks (e.g., SWR / React Query)
+        utils/        # Domain-specific helpers
+ lib/                  # Shared Utilities (Backend & Frontend)
+    db/               # Database schemas and connection logic
+    supabase/         # Supabase client singletons
+    utils.ts          # Generic helpers
+ scripts/              # Useful runner scripts (Seeding, Migrations)
+    seed.ts           # Script to quickly seed database with demo data
+ docs/                 # Documentation (Source of Truth)
+    Research.md       # Heavy research on the question/problem
+    PRD.md            # Product Requirements & Iteration Notes
+    techStack.md      # Tech Stack: What, How, Why
+    design.md         # User Flows & Design Inspiration
+    pitch/            # Slide outlines, demo scripts, and assets
+ middleware.ts         # Centralized route protection (Auth)
 ```
 
-## Why this structure wins at Hackathons:
-1. **Single Monorepo:** Frontend and Backend live together. You avoid CORS entirely, you only deploy to Vercel once, and you don't need multiple `.env` files.
-2. **Feature Co-location:** Multiple team members can work in `features/user` and `features/projects` concurrently. This minimizes merge conflicts in `components/` and `pages/`.
-3. **Painless Scaling:** It starts fast, but the `features/` abstraction means you won't end up with a terrifying "junk drawer" component folder at 3:00 AM on Sunday.
-4. **Demo Readiness:** Putting `scripts/seed.ts` at the root encourages early data seeding, which is critical for making sure the app actually looks good during the final pitch.
+### **Core Tenets**
+1. **Docs as Code:** Keep your strategic foundation (`docs/`) inside the repo so the AI and team are always in sync.
+2. **Feature-First:** Use the `features/` directory for anything beyond generic UI. It prevents the `components/` folder from becoming a graveyard.
+3. **Seeding & Envs:** Always include a `seed.ts` script and a populated `.env.example`. You cannot waste time manually creating test data or debugging missing local secrets.
+
+---
+
+### **Sidenote: Why the `features/` folder?**
+In high-speed development, the `features/` directory implements **Feature-Based Architecture**. This is superior to standard "Layer-Based" folders for three reasons:
+
+*   **Logic Separation:** `components/` is for how things *look* (generic UI like Buttons/Cards). `features/` is for what they *do* (domain logic like `Leaderboard` or `ProjectSubmission`).
+*   **AI Efficiency:** When an AI needs to update a specific flow, it only scans the relevant feature folder rather than hunting through global `hooks/`, `utils/`, and `components/` directories.
+*   **Encapsulation:** It prevents the global `components/` folder from becoming a graveyard of one-off components. Everything related to a domain (types, hooks, UI) lives and dies together in its feature folder.

@@ -29,6 +29,6 @@ Use these specialized context files to plan your execution before moving into fr
 
 ## Execution Workflow
 
-1. **Hours 1–3**: Brainstorming. Attach `hackathon-strategy.md` and define the feature set.
+1. **Hours 1-3**: Brainstorming. Attach `hackathon-strategy.md` and define the feature set.
 2. **Hour 3**: Scaffolding. Use `file-structure.md` to build the repo.
-3. **Hours 3–24**: Execution. Transition to `frontend/skills/hackathon-frontend.md` and `backend/skills/hackathon-backend.md`.
+3. **Hours 4 onwards**: Execution. Transition to `hackathons/skills/frontend.md` and `hackathons/skills/backend.md`.

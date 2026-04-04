@@ -1,6 +1,15 @@
-# Backend Documentation
-
-This directory contains our highly modular, domain-driven backend documentation. It is rigorously structured to prevent AI context fragmentation when generating code, databases, or CI pipelines.
+### Domains:
+- **[`api-design/`](./api-design/)**: [Prompts](./api-design/prompts/), [Resources](./api-design/resources/), [Ideas](./api-design/ideas/).
+- **[`auth/`](./auth/)**: [Skills](./auth/skills/), [Resources](./auth/resources/), [Ideas](./auth/ideas/).
+- **[`ci-cd/`](./ci-cd/)**: [Skills](./ci-cd/skills/), [Resources](./ci-cd/resources/), [Ideas](./ci-cd/ideas/).
+- **[`databases/`](./databases/)**: [Skills](./databases/skills/), [Resources](./databases/resources/), [Ideas](./databases/ideas/).
+- **[`architecture/`](./architecture/)**: [Skills](./architecture/skills/), [Ideas](./architecture/ideas/).
+- **[`performance/`](./performance/)**: [Skills](./performance/skills/), [Ideas](./performance/ideas/).
+- **[`security/`](./security/)**: [Skills](./security/skills/), [Prompts](./security/prompts/), [Resources](./security/resources/).
+- **[`ideas/`](./ideas/)**: Cross-domain brainstorming and feature notes.
+- **[`standards.md`](./standards.md)**: Global backend engineering rules.
+- **[`PROMPTS.md`](./PROMPTS.md)**: Master backend prompt templates.
+- **[`decisions.md`](./decisions.md)**: Architectural rationales.
 
 ## Hackathon Focus (Speed over Perfection)
 
@@ -40,7 +49,7 @@ For startups, prioritize **Observability** and the **Safety to Pivot**.
 
 To get the most out of this structure when collaborating with an AI, follow this workflow:
 
-1. **Attach the Mastery Skill**: When starting a new backend project, always attach the relevant overarching skill file from [`/skills`](./skills) (e.g., `webdev-backend.md` for production or `hackathon-backend.md` for speed).
+1. **Attach the Mastery Skill**: When starting a new backend project, always attach the relevant overarching skill file from [`/skills`](./skills) (e.g., `webdev-backend.md` for production or `../hackathons/skills/backend.md` for speed).
 2. **Combine with Prompts**: Use the templates in the local `prompts/` subdirectories. Attach specific domain definitions (e.g. `auth/skills/auth-fundamentals.md`) alongside the prompt.
 3. **Modify per Project**: Use these files as a baseline. For specialized projects, copy the `decisions.md` file to your project root.
 
@@ -50,12 +59,12 @@ To get the most out of this structure when collaborating with an AI, follow this
 
 Every domain follow a strict modular structure:
 `domain/`
-├── `skills/` — Domain-specific fundamentals and best practices.
-├── `prompts/` — Robust, token-efficient scaffolds for AI generation.
-├── `resources/` — Curated links, libraries, and external documentation.
-├── `ideas/` — Scrappy thoughts and rapid prototyping logs.
-├── `standards.md` — Hard rules for the domain (e.g., security checklists).
-└── `decisions.md` — Architectural choices and justifications.
+ `skills/`  Domain-specific fundamentals and best practices.
+ `prompts/`  Robust, token-efficient scaffolds for AI generation.
+ `resources/`  Curated links, libraries, and external documentation.
+ `ideas/`  Scrappy thoughts and rapid prototyping logs.
+ `standards.md`  Hard rules for the domain (e.g., security checklists).
+ `decisions.md`  Architectural choices and justifications.
 
 ### Domains:
 - **[`api-design/`](./api-design/)**: REST/GraphQL boundaries, Zod validation, and error envelopes.

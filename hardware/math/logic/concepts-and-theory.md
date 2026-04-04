@@ -12,7 +12,7 @@ Sensors like the MPU6050 suffer from two distinct physics constraints:
 - **Accelerometers:** Very accurate over *long* timeframes, but suffer from extreme high-frequency jitter in the short term.
 - **Gyroscopes:** Incredibly stable and fast in the *short* time frame, but suffer from mathematical drift over the long term.
 
-A **Kalman Filter** relies on continuous, heavy matrix math arrays to theoretically guess the exact sensor limits constantly—this completely locks up microcontrollers like the Arduino Nano due to memory processing bloat.
+A **Kalman Filter** relies on continuous, heavy matrix math arrays to theoretically guess the exact sensor limits constantlythis completely locks up microcontrollers like the Arduino Nano due to memory processing bloat.
 A **Complementary Filter** relies on one cheap single-line formula. It places a *low-pass filter* on the accelerometer (ignoring the jitter) and a *high-pass filter* on the gyroscope (ignoring the drift), combining them instantly at a roughly `0.96 \ 0.04` ratio for 95% perfect accuracy at 1% the CPU cost.
 
 ## 3. Cellular Automata & O(1) Operations
