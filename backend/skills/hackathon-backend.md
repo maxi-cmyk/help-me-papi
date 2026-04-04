@@ -200,6 +200,21 @@ Next.js?
 
 ---
 
+## Navigating the Backend Domains
+
+Even at a hackathon, some domains require pre-established standards. Manually attach these files to your AI prompt when moving into specific sub-systems:
+
+### 1. [Security and Audit](../security/standards.md)
+**When to attach**: For anything involving user data or secrets. Use it to ensure the AI doesn't skip basic protection (like rate limiting) even in a hurry.
+
+### 2. [Database and State](../databases/standards.md)
+**When to attach**: When setting up your initial schema or migrations. Ensures clean, UUID-based relational logic from the start.
+
+### 3. [API and Validation](../api-design/standards.md)
+**When to attach**: For consistent error handling and Zod validation across all Route Handlers.
+
+---
+
 ## File Structure
 
 When scaffolding a hackathon project, use this structure:

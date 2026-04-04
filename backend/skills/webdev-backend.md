@@ -160,6 +160,30 @@ Automation is mandatory. Use GitHub Actions for continuous integration.
 
 ---
 
+## Navigating the Backend Domains
+
+When building complex sub-systems, you should manually attach the following specialized context files to your AI prompt to ensure the highest standard of execution:
+
+### 1. [Security and Audit](../security/standards.md)
+**When to attach**: For any task involving authentication, data validation, rate limiting, or sensitive data handling. Contains the project's core security rules and OWASP-aligned checklists.
+
+### 2. [API Design and Validation](../api-design/standards.md)
+**When to attach**: When designing new endpoints, refactoring existing ones, or defining Zod schemas for request/response envelopes. 
+
+### 3. [Database and State](../databases/standards.md)
+**When to attach**: When creating migrations, modifying schemas (Prisma/Drizzle), or defining RLS (Row-Level Security) policies in Postgres.
+
+### 4. [Performance and Caching](../performance/standards.md)
+**When to attach**: For query optimization tasks, implementing Redis caching layers, or improving API response times under high concurrency.
+
+### 5. [Auth and Identity](../auth/skills/auth-setup.md) (Wait, I should check this path)
+**When to attach**: When implementing OAuth, multi-factor authentication (MFA), or custom session management outside of managed providers.
+
+### 6. [CI/CD and Deployment](../ci-cd/decisions.md)
+**When to attach**: When configuring GitHub Actions, serverless environment variables, or automated release pipelines for Vercel/Railway.
+
+---
+
 ## File Structure
 
 For a robust startup backend in Next.js, use a domain-driven or layered structure:

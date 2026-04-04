@@ -15,19 +15,19 @@ This mastery skill encapsulates structural interactions when handling physical h
 
 ## Navigating the Hardware Domains
 
-When executing complex sub-features for embedded logic systems, interact strictly against these isolated domains:
+For complex embedded systems, manually attach the following context files to your prompt to prevent hallucinatory or non-optimized code:
 
 ### 1. [Firmware Architecture](../architecture/skills/firmware-patterns.md)
-Reference this directory prior to splitting a monolithic file. Outlines precise instructions on `main.cpp` / `web.cpp` logic partitions, preventing linker double-include faults, and correct Flag Handshake protocol logic preventing race conditions.
+**When to attach**: When structuring your `main.cpp` vs `web.cpp` logic partitions, preventing linker errors from double-includes, or implementing Flag Handshake protocols for multi-core ESP32 tasks.
 
-### 2. [Performance & Output Bounds](../performance/skills/optimisation.md)
-Crucial limits for display renders and loop speed blocks. Defines exactly why `delay()` is fatally forbidden inside tasks, mandates hardware SPI, and demands `IRAM_ATTR` configurations for interrupts explicitly. Contains core debugging prompts.
+### 2. [Performance and Optimization](../performance/skills/optimisation.md)
+**When to attach**: For all display rendering, interrupt handling (`IRAM_ATTR`), or when timing is critical. Use this to ensure the AI swaps `delay()` for non-blocking timer loops.
 
-### 3. [Math & Signal Limits](../math/skills/signal-processing.md)
-Governs all computational outputs dictating how to map Hann windows mapped to `esp_dsp` FFT calculations, Complementary Filters for IMU datasets, and O(1) bitwise toroidal logic loops for structural LED calculations across memory bounds.
+### 3. [Math and Signal Processing](../math/skills/signal-processing.md)
+**When to attach**: When implementing FFT calculations (e.g., `esp_dsp`), Hann windows, IMU filtering, or bitwise logic for high-speed LED arrays.
 
-### 4. Physical Requirements
-Check the local `inventory.md` stored entirely inside `hardware/components` before suggesting external components. If an integration matches components confirmed in the inventory, bias the generation output to strictly utilise them first.
+### 4. [Inventory and Components](../components/inventory.md)
+**When to attach**: Always. This ensures the AI only recommends components, pins, and libraries that you actually have in your physical inventory.
 
 ---
 

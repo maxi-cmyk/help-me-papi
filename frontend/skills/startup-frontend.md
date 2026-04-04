@@ -38,22 +38,22 @@ Are we building an SEO-sensitive application or a full-stack monolithic app?
 
 ## Navigating the Frontend Domains
 
-When executing tasks, refer directly to the localized domain documentation to ensure you follow project-specific constraints:
+For specialized tasks, manually attach the following context files to your prompt to ensure the highest quality output:
 
-### 1. [Architecture & Patterns](../architecture/skills/component-patterns.md)
-Refer to the `architecture/` directory for determining when to build a component, how to use Inversion of Control with the `children` prop, and how to structure the `features/` directory properly.
+### 1. [Architecture and Feature Design](../architecture/skills/component-patterns.md)
+**When to attach**: When structuring new features, deciding on data-flow between components, or implementing the Feature-Sliced Design (FSD) directory structure.
 
-### 2. [UI/UX & Clarity-First Rules](../ui-ux/skills/clarity-first.md)
-Before putting any button or card on the screen, run it through the "Clarity-First" reduction framework found in `ui-ux/skills/clarity-first.md` and `layout-and-interaction.md`. Ensure empty states and error recovery are handled.
+### 2. [UI/UX and Clarity Standards](../ui-ux/standards.md)
+**When to attach**: For all UI development. Ensures the interface adheres to the "Clarity-First" reduction framework, handles empty/error states, and maintains accessibility (WCAG AA).
 
-### 3. [Performance Vitals](../performance/skills/rendering-and-loading.md)
-Before adding any animation or loading custom fonts, consult the `performance/` directory to ensure layout shifts (CLS) are prevented and CSS animations only manipulate GPU-accelerated properties (`transform` and `opacity`).
+### 3. [Performance and Rendering](../performance/skills/rendering-and-loading.md)
+**When to attach**: Before optimizing Core Web Vitals, adding complex animations, or loading external assets. Prevents layout shifts (CLS) and ensures GPU-accelerated transitions.
 
-### 4. [Design Inspirations & Aesthetics](../design-inspos/decisions.md)
-Consult the `design-inspos/` directory to ensure you are accurately replicating the project's visual constraints, whether it's an Apple-like translucent glassmorphism look, or alternative aesthetics like Neo-Brutalism or Y2K Aero.
+### 4. [Design System and Aesthetics](../design-inspos/decisions.md)
+**When to attach**: When styling new components to ensure they match the project's visual source of truth (e.g., Apple-like Glassmorphism or specific brand themes).
 
-### 5. [Tooling & Libraries](../tooling/resources/libraries.md)
-Never install a heavy UI kit (like Material-UI or Bootstrap) without explicitly confirming. Stick to unstyled headless primitives (Radix, React Aria) styled with Tailwind or Vanilla CSS.
+### 5. [Libraries and Tooling](../tooling/resources/libraries.md)
+**When to attach**: When adding new dependencies or choosing between unstyled primitives (Radix, React Aria). Ensures we stick to the project's approved tech stack.
 
 ---
 

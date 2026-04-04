@@ -42,13 +42,18 @@ Are we building for a hackathon?
 
 ---
 
-## Navigating the Domains
+## Navigating the Frontend Domains
 
-Even at a hackathon, respect the aesthetic. Pull from specific project docs when generating:
+Even in a rush, some domains are non-negotiable for a winning demo. Manually attach these files to your prompt when focusing on specific polish:
 
-- **[Clarity-First Rules](../ui-ux/skills/clarity-first.md)**: Keep the interface ruthlessly simple to prevent cognitive overload during your 2-minute pitch.
-- **[Design Inspirations](../design-inspos/decisions.md)**: Pick a distinct alternative style (like Synthwave or Neo-Brutalism) to stand out, and execute it using the CSS constraints defined.
-- **[Component Patterns](../architecture/skills/component-patterns.md)**: Only read the "Hero Sections (Best Practices)" section to ensure the hero layout maps perfectly to user eyetracking (Headline -> Subheadline -> Single CTA).
+### 1. [UI/UX and Clarity Standards](../ui-ux/standards.md)
+**When to attach**: For all UI development. Ensures your MVP isn't cluttered and that the core user flow is ruthlessly simple for your pitch.
+
+### 2. [Design System and Aesthetics](../design-inspos/decisions.md)
+**When to attach**: When applying your chosen "flavor" (e.g., Glassmorphism). Ensures the AI generates CSS that is visually consistent and premium across all components.
+
+### 3. [Architecture and Feature Design](../architecture/skills/component-patterns.md)
+**When to attach**: Only when building your core "WOW" feature. Ensures the layout follows eye-tracking best practices for a high-impact demo.
 
 ---
 
