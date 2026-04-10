@@ -1,11 +1,6 @@
----
-name: tools-mastery
-description: Mastery skill for designing internal CLIs, automating workflows via Python/NodeJS, and architecting Model Context Protocol (MCP) servers.
----
-
 # Automation and Tooling Mastery
 
-This mastery skill governs the creation and maintenance of developer productivity tools, automation scripts, and custom Model Context Protocol (MCP) servers.
+This mastery guide governs the creation and maintenance of developer productivity tools, automation scripts, and custom Model Context Protocol (MCP) servers.
 
 ## Core Principles
 
@@ -25,8 +20,11 @@ For specialized automation tasks, manually attach the following context files to
 ### 2. [MCP Server Architecture](./mcp-servers.md)
 **When to attach**: When building custom Model Context Protocol servers to extend AI capabilities with local tools or resources.
 
-### 3. [Data Analysis and Statistics](../data-analysis/skills.md)
+### 3. [Data Analysis and Statistics](../../data-analysis/skills/data-analysis-mastery.md)
 **When to attach**: For Python-based automation involving large datasets, statistical analysis, or Conway's Game of Life simulation evaluation.
+
+### 4. [Graphify for Claude Code](./graphify.md)
+**When to refer**: For understanding how to optimize Claude's file navigation using knowledge graphs and the `/graphify` command.
 
 ---
 

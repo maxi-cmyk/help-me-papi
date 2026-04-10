@@ -18,7 +18,7 @@ PATH_TAG_RE = re.compile(r"(?<!\w)#([A-Za-z][A-Za-z0-9_-]*(?:/[A-Za-z0-9_-]+)+)"
 FENCED_BLOCK_RE = re.compile(r"```.*?```|`[^`\n]+`", re.DOTALL)
 CONTRIBUTOR_RE = re.compile(r"<!--\s*@([^>]+?)\s*-->")
 
-DEFAULT_CONTENT_FOLDERS = {"skills", "ideas"}
+DEFAULT_CONTENT_FOLDERS = {"skills", "ideas", "good-to-know"}
 CONTENT_FOLDERS_FILE = ".content-folders"
 CATALOG_FILE = "catalog.md"
 FOLDER_INBOX = "_inbox.md"
