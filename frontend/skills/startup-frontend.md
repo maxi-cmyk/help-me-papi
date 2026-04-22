@@ -10,13 +10,14 @@ Frontend patterns optimized for maintainability, clean collaboration across deve
 **Language Default**: TypeScript. In production apps, the cost of debugging runtime `undefined` errors drastically outweighs the time spent setting up `interface` shapes. Use Zod for runtime boundary validation.
 
 **When to use this skill**: Web development for startups, enterprise software, applications expected to live for years, or any project facing real users.
+
 **When NOT to use this skill**: Weekend hackathons, temporary disposable prototypes. Use `hackathon-frontend` instead.
 
 ---
 
 ## Core Principles
 
-1. **Feature-Sliced Architecture.** Do not dump 100 components into `/components`. Co-locate domain logic inside `features/`.
+1. **Feature-Sliced Architecture.** Do NOT dump 100 components into `/components`. Co-locate domain logic inside `features/`.
 2. **Generic UI Isolation.** Keep generic UI components (`Button`, `Modal`) entirely ignorant of your business logic. They should receive primitive props (`isOpen`) rather than full data objects.
 3. **Strict Web Vitals.** Adhere rigorously to the 60fps rule and layout shift prevention. If a component causes jank, it is fundamentally broken.
 4. **State Locality.** Global state is a last resort. If data only matters to a specific feature, keep it in that feature's specific hook or local component state. Server state belongs in data-fetching hooks (React Query/SWR/TRPC), not manual global state syncs.
