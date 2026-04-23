@@ -18,7 +18,7 @@
 [PRE-REQUISITES] 
 - Ensure **21st Dev MCP** is connected: `claude mcp add 21st-dev npx -y @21st-dev/mcp`
 - Ensure **Stitch MCP** is connected: `claude mcp add stitch npx -y @_davideast/stitch-mcp proxy`
-[TASK] Build a high-fidelity [Component Name] component.
+[TASK] Build a high-fidelity [Component Name] component
 
 [TECHNICAL CONSTRAINTS]
 - Aesthetic: Apple-style elegance (whitespace, fluid padding, subtle shadows).
