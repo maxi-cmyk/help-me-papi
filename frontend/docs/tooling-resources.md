@@ -17,3 +17,6 @@ If you do not want to build from scratch with headless primitives, use these:
 - **Shadcn UI:** Copy-paste components featuring the subtle micro-borders and blur backgrounds typical of macOS.
 
 *(Note: Avoid Bootstrap, Material-UI, or Ant Design if building a consumer-facing app. They carry heavy bundle bloat and require massive overrides).*
+
+## AI Design-Quality Tooling
+- **[Impeccable](./impeccable-skill.md)**: Third-party `/impeccable` Claude Code skill (also works with Cursor, Codex, Gemini CLI, etc.) that enforces a stronger design vocabulary and actively rejects overused AI-generated design tells (Inter/DM Sans everywhere, purple gradients, cards-in-cards). Pairs with the `AUDIT_UI_CLARITY` macro in [`PROMPTS.md`](../PROMPTS.md). See [github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable) / [impeccable.style](https://impeccable.style/).

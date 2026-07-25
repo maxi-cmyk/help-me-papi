@@ -17,3 +17,10 @@ Premium typography requires massive font files. To prevent FOIT (Flash of Invisi
 
 ## 4. Perceived Performance
 - **Optimistic UI updates are mandatory.** If a user clicks a toggle or a heart icon, update the local state immediately, fire the API request in the background, and silently revert/error *only* if the request fails. Don't make them wait 500ms for a spinner on a simple boolean interaction.
+
+## 5. Performance Budgets (Core Web Vitals)
+Treat these as hard budgets, not aspirational targets  check them before merging, not after a Lighthouse regression report:
+- **LCP (Largest Contentful Paint):** < 2.5s. Preload the LCP image/font; never lazy-load above-the-fold hero media.
+- **INP (Interaction to Next Paint):** < 200ms. Replaced FID as the responsiveness metric  break up long JS tasks and defer non-critical work off the main thread.
+- **CLS (Cumulative Layout Shift):** < 0.1. Covered by the layout-shift rules above, but also applies to injected banners/ads/cookie notices  reserve their space up front.
+- Ship a Lighthouse CI or `web-vitals` RUM check in the pipeline so budgets are enforced automatically, not just eyeballed locally.

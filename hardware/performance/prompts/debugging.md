@@ -24,3 +24,13 @@ The inputs are completely erratic and sensors are failing sporadically.
 The compiler is throwing massive errors when linking files.
 I suspect `web.cpp` and `main.cpp` are incorrectly sharing structures. Verify `#pragma once` is inside headers, verify I didn't define a struct within `.cpp` directly, and confirm we strictly invoke `webHandle()` or `server.handleClient()` on every primary loop tick so the browser is never ghosted.
 ```
+
+## Modern Debugging Workflow (beyond `Serial.println`)
+
+Reach for these before resorting to guess-and-reflash cycles:
+
+- **PlatformIO + `platformio.ini` debug config**: Use PlatformIO's native GDB/OpenOCD integration for ESP32/ARM targets instead of raw `esptool` flashing loops  breakpoints and live variable inspection beat sprinkling `Serial.println` everywhere.
+- **ESP-IDF `idf.py monitor` with core-dump decoding**: On crash/panic, decode the backtrace with `idf.py coredump-info` rather than guessing from a raw hex dump  it maps straight back to source lines.
+- **Logic analyzer for timing-critical bugs** (e.g. Saleae/sigrok clone): When `delay()`/ISR timing behaves inconsistently, a logic analyzer on the SPI/I2C lines settles the "is it code or is it hardware" question in minutes instead of hours of print-statement bisection.
+- **RTT (Real-Time Transfer) over UART logging** where supported (SEGGER J-Link, some ESP32 debug probes): non-blocking, doesn't perturb timing-critical loops the way blocking `Serial.println` does.
+- Keep the `#backlog` triage habit: attach this file plus the relevant `docs/decisions.md` entry before asking an AI agent to debug intermittent hardware failures  intermittent bugs are usually a wiring/power issue, not a logic bug, and the agent needs that context to avoid chasing code ghosts.

@@ -60,11 +60,33 @@ Return the code for the handler, service, and a `curl` test command.
 [CONTEXT] Analyze the existing middleware and auth client setup.
 [TASK] Wire authentication into a new or existing module.
 
+[PREFERRED STACK]
+- Managed auth (Clerk-style) or Supabase Auth over hand-rolled JWT unless there's a hard reason not to.
+- Passkeys (WebAuthn) as the default first-factor where the provider supports it; fall back to OAuth 2.1 (with PKCE, mandatory for public clients) for social login.
+- Short-lived access tokens + rotating refresh tokens; never long-lived tokens in localStorage.
+
 [OUTPUT]
-1. AUTH CLIENT: Setup code for Supabase/JWT.
-2. MIDDLEWARE: Route protection logic with redirect handling.
-3. HOOKS: A `useAuth` or `getServerUser` helper for session access.
-4. SIGNUP/LOGIN: Production-ready forms and state handling.
+1. AUTH CLIENT: Setup code for the chosen provider (Clerk/Supabase Auth/custom JWT).
+2. PASSKEY/OAUTH FLOW: Registration + login wiring, including PKCE for OAuth 2.1 and WebAuthn ceremony for passkeys.
+3. MIDDLEWARE: Route protection logic with redirect handling.
+4. HOOKS: A `useAuth` or `getServerUser` helper for session access.
+5. SIGNUP/LOGIN: Production-ready forms and state handling, including passkey enrollment prompts.
+```
+
+#### **Macro: OBSERVABILITY_SETUP**
+```markdown
+[ROLE] You are a Site Reliability Engineer.
+[CONTEXT] Analyze the service entrypoints (API routes, background jobs, cron handlers).
+[TASK] Instrument the service with structured logging, tracing, and rate limiting so incidents are diagnosable in production.
+
+[CHECKLIST]
+1. STRUCTURED LOGGING: JSON logs (e.g. Pino) with request ID, user ID (if authed), route, latency, and status on every request.
+2. TRACING: Propagate a `trace_id`/`request_id` across service boundaries (DB calls, external APIs, queues); wire OpenTelemetry if the stack supports it.
+3. ERROR ENVELOPE: All errors follow the shared `{ "error": { "code", "message", "details" } }` shape (see `docs/api-standards.md`)  never leak stack traces to clients.
+4. RATE LIMITING: Apply per-IP/per-user limits at the edge or middleware layer; return `Retry-After` on 429s.
+5. ALERTING: Define the SLO (e.g. p99 latency, error rate) and the alert threshold that pages someone.
+
+[OUTPUT] Instrumented code + a short runbook: "if X metric fires, check Y first."
 ```
 
 ---

@@ -21,12 +21,13 @@
 [TASK] Build a high-fidelity [Component Name] component
 
 [TECHNICAL CONSTRAINTS]
-- Aesthetic: Apple-style elegance (whitespace, fluid padding, subtle shadows).
+- Aesthetic: Clarity-first (generous whitespace, fluid padding, subtle shadows)  avoid default "AI slop" tells (Inter/DM Sans everywhere, purple-to-blue gradients, cards nested in cards). See `docs/impeccable-skill.md` if the `/impeccable` skill is installed.
 - HTML: Strictly semantic (nav, section, main, article, button).
 - CSS: Custom properties for all spacing/colors. No hard-coded hex.
-- Typography: Inter/System fonts with 1.5 line height.
+- Typography: A considered type pairing (not the default system/Inter stack) with 1.5 line height.
 - Micro-interactions: 200ms easing transitions for hover/active/focus/disabled states.
 - Responsive: Fluid scaling for mobile (evaluate layout, don't just stack).
+- Performance budget: Core Web Vitals in mind from the start (LCP < 2.5s, CLS < 0.1, INP < 200ms)  lazy-load offscreen media, avoid layout-shifting web fonts.
 
 [OUTPUT]
 Return semantic HTML, scoped vanilla CSS, and the minimal JS required for interactivity.
@@ -66,6 +67,21 @@ Return semantic HTML, scoped vanilla CSS, and the minimal JS required for intera
 - MULTIMODAL: Contrast (AA+) and animation reduction support.
 
 [OUTPUT] A bulleted list of violations and the exact code refactor for each.
+```
+
+#### **Macro: AUDIT_UI_CLARITY**
+```markdown
+[ROLE] You are a Design Systems Reviewer.
+[CONTEXT] Paste the component/page under review, or a target route/page name.
+[PLATFORM] **Claude Code** with the `/impeccable` skill installed (see `docs/impeccable-skill.md`).
+[TASK] Run a design-quality pass that catches AI-slop tells (overused fonts, purple gradients, cards nested in cards) before a component ships.
+
+[STEPS]
+1. Invoke `/impeccable audit <target>` for the deterministic + LLM-critique pass (a11y, performance, responsive, anti-pattern detection).
+2. Cross-check findings against this repo's `standards.md` (whitespace-first, semantic HTML, token-based CSS).
+3. For borderline calls, run `/impeccable critique <target>` for a UX-hierarchy read.
+
+[OUTPUT] A ranked list of violations (Must Fix / Should Fix / Nitpick) with the exact `/impeccable` command used to verify each fix.
 ```
 
 #### **Macro: SCAFFOLD_FEATURE**

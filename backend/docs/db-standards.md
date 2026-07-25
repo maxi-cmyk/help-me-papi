@@ -26,3 +26,11 @@
 - Always test migrations on staging before running on production
 - Keep migrations backward-compatible  don't drop a column until the old code is gone
 - Verify backups exist and are restorable before going to production
+
+## Supabase / Postgres patterns
+- Row Level Security (RLS) is the default posture for any table touched by client-side queries  enable it before the table goes near production, not after an incident
+- Write RLS policies per operation (`select`, `insert`, `update`, `delete`)  a blanket `USING (true)` policy defeats the purpose
+- Use `auth.uid()` in policies to scope rows to the requesting user; test policies with the Supabase SQL editor's "run as user" mode before shipping
+- Prefer Postgres functions (`SECURITY DEFINER` where justified) for cross-table logic that RLS can't express cleanly, and document why the function bypasses RLS
+- Use `pgvector` for embeddings when the workload doesn't yet justify a dedicated vector DB  keeps the stack to one database
+- Realtime subscriptions: scope channels per-resource (e.g. `room:${roomId}`) rather than broadcasting whole tables

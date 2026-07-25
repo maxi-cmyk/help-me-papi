@@ -64,3 +64,33 @@ Return the complete retrieval function code and a validation script to test "ret
 
 [OUTPUT] Scores (1-10) for each metric and a "Root Cause" analysis for low scores.
 ```
+
+#### **Macro: BUILD_EVAL_SET**
+```markdown
+[ROLE] You are an Eval Engineer practicing eval-driven development.
+[CONTEXT] Analyze the RAG pipeline, target domain, and any existing production query logs.
+[TASK] Build a golden evaluation set BEFORE shipping the next pipeline change.
+
+[REQUIREMENTS]
+- 3050 (query, expected_chunks, expected_answer) triples covering the realistic query distribution.
+- Include adversarial cases: no-answer-in-corpus queries, ambiguous queries, multi-chunk synthesis queries.
+- Include at least 5 real production failures (see `AI/skills/evaluation.md` Failure Review) so past regressions can't silently reappear.
+
+[OUTPUT] A structured eval dataset (JSON/CSV) plus a runnable eval script that scores retrieval (recall@k) and generation (faithfulness, relevance) metrics against it.
+```
+
+#### **Macro: ADD_GUARDRAILS**
+```markdown
+[ROLE] You are an AI Safety/Reliability Engineer.
+[CONTEXT] Paste the current system prompt and the RAG/generation pipeline.
+[TASK] Add guardrails against hallucination and out-of-scope responses.
+
+[CHECKLIST]
+1. GROUNDING INSTRUCTION: Explicit "answer only from the provided context; say 'I don't know' if the context doesn't contain the answer" instruction in the system prompt.
+2. CITATION REQUIREMENT: Require the model to cite which chunk(s) support each claim  makes hallucination visually auditable.
+3. OUTPUT VALIDATION: Structured output (JSON schema) where possible, validated post-generation before it reaches the user.
+4. REFUSAL PATH: A defined, tested behavior for out-of-scope or unsafe queries rather than best-effort improvisation.
+5. FAITHFULNESS CHECK: Wire the faithfulness metric from `EVALUATE_RAG_QUALITY` as a runtime check on high-stakes answers, not just an offline eval.
+
+[OUTPUT] Updated system prompt + the validation/guardrail code, and a short list of queries that now correctly refuse or hedge instead of hallucinating.
+```

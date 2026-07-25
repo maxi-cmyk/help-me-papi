@@ -53,3 +53,9 @@
 - Auth endpoints: 10 requests per 15 minutes per IP
 - Password reset: 3 requests per hour per IP
 - Rate limiter backed by Redis in multi-instance deployments
+
+## Service layer modularity (security-first)
+- Split business logic into a `services/` layer that owns DB access; route handlers stay thin (parse -> validate -> call service -> format response)
+- Services never read `req` directly  pass only the validated, typed data they need. This keeps auth/authorization checks centralized and testable in isolation
+- Each service function should be independently unit-testable without spinning up the HTTP server
+- Treat the service boundary as the security boundary: if a service function trusts its caller to have already checked authorization, document that assumption at the top of the file

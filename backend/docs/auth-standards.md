@@ -33,3 +33,18 @@
 - Check authorization at the resource level, not just the route level
 - Never trust user-supplied IDs without verifying ownership
 - Log authorization failures  repeated 403s on a resource can indicate enumeration
+
+## Passkeys (WebAuthn)  default for new products
+- Prefer passkeys as the primary first factor where the provider/browser supports it; they remove phishable shared secrets entirely
+- Use a managed provider (Clerk, Supabase Auth, WorkOS, Auth0) for the WebAuthn ceremony rather than implementing the attestation/assertion flow by hand
+- Always ship a fallback path (email OTP or OAuth) for devices/browsers without passkey support
+- Store credential IDs and public keys server-side; never accept a raw signature without verifying the challenge and origin
+
+## OAuth 2.1 / social login
+- OAuth 2.1 folds in the security fixes that used to be optional extensions  treat these as mandatory, not nice-to-haves:
+  - PKCE (Proof Key for Code Exchange) required for all clients, including confidential ones
+  - Implicit grant and Resource Owner Password Credentials grant are removed  never implement them
+  - Exact redirect URI matching (no wildcard/prefix matching)
+  - Refresh tokens for public clients must be sender-constrained or one-time-use with rotation
+- Always validate the `state` parameter on the callback to prevent CSRF (still applies on top of PKCE)
+- Exchange authorization codes server-side only  never in the browser

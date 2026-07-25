@@ -56,3 +56,20 @@ Never return naked objects or arrays at the top level. The envelope makes it eas
 - CORS: explicit origin whitelist, never `*` in production
 - All responses: `Content-Type: application/json`
 - Sensitive data: never return passwords, full card numbers, or internal IDs where avoidable
+
+## GraphQL (when REST doesn't fit)
+- Prefer REST for CRUD-shaped resources; reach for GraphQL when clients need flexible, nested queries across many resource types (dashboards, mobile apps with varying data needs)
+- Use persisted queries in production  don't accept arbitrary query strings from untrusted clients
+- Set query depth/complexity limits to prevent resource-exhaustion attacks
+- Errors still follow the shared envelope inside the GraphQL `errors[]` array (`code`, `message`) so clients can branch on them the same way as REST
+
+## Observability
+- Structured (JSON) logs on every request: `request_id`, route, status, latency, user ID if authed
+- Propagate a `request_id`/`trace_id` through downstream calls (DB, external APIs, queues); wire OpenTelemetry where the stack supports it
+- Emit metrics for p50/p95/p99 latency and error rate per route  these are your SLOs, not an afterthought
+- Never log secrets, tokens, or full request bodies containing PII
+
+## Rate limiting (expanded)
+- Apply limits at the edge/gateway when possible (Cloudflare, API gateway) before they hit application code
+- Scale limits by authentication tier (anonymous vs authenticated vs paid) rather than one global number
+- Always return the `Retry-After` header and a `RATE_LIMITED` error code in the envelope on 429

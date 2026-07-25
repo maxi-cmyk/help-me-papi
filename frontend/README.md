@@ -73,6 +73,7 @@ To prevent context fragmentation when using AI, every domain follow a strict mod
 - **[`performance/`](./performance/)**: [Skills](./performance/skills/), [Ideas](./performance/ideas/).
 - **[`ui-ux/`](./ui-ux/)**: [Skills](./ui-ux/skills/), [Resources](./ui-ux/resources/), [Ideas](./ui-ux/ideas/).
 - **[`tooling/`](./tooling/)**: [Skills](./tooling/skills/), [Stitch Workflow](./tooling/stitch-workflow.md), [Resources](./tooling/resources/).
+- **[`docs/impeccable-skill.md`](./docs/impeccable-skill.md)**: Third-party `/impeccable` Claude Code design-quality skill  install steps and command reference.
 - **[`ideas/`](./ideas/)**: Cross-domain brainstorming and UI experiments.
 - **[`PROMPTS.md`](./PROMPTS.md)**: Frontend prompt templates.
 - **[`standards.md`](./standards.md)**: Global frontend engineering rules.

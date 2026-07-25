@@ -72,7 +72,7 @@
 
 ### Skills
 
-- [Clarity-First Design Principles](frontend/skills/clarity-first.md)
+- [Clarity-First Design Principles](frontend/skills/.md)
 - [Design-to-Code Mastery](frontend/skills/design-generation.md)
 - [Layout, Interaction & Execution](frontend/skills/layout-and-interaction.md)
 - [Rendering and Loading Performance](frontend/skills/rendering-and-loading.md)
@@ -88,6 +88,7 @@
 
 - [Frontend Agentic Macro Library](frontend/PROMPTS.md)
 - [Inspiration by Aesthetic](frontend/docs/design-resources.md)
+- [/impeccable  Design Vocabulary Skill](frontend/docs/impeccable-skill.md)
 - [Frontend Libraries](frontend/docs/tooling-resources.md)
 - [UI/UX Literature & Conceptual Frameworks](frontend/docs/ui-ux-resources.md)
 
@@ -118,7 +119,6 @@
 
 - [Embedded Firmware Patterns](hardware/architecture/skills/firmware-patterns.md)
 - [Embedded Math: Execution Frameworks & Snippets](hardware/math/skills/signal-processing.md)
-- [Hardware Optimisation Rules](hardware/performance/skills/optimisation.md)
 - [Embedded Hardware Architecture](hardware/skills/embedded-cpp.md)
 
 ### Ideas
@@ -136,6 +136,10 @@
 - [Sensor Fusion and Filtering](hardware/math/logic/sensor-fusion.md)
 - [Spatial Searching (Quadtrees and Octrees)](hardware/math/logic/spatial-searching.md)
 - [Hardware Debugging Macros](hardware/performance/prompts/debugging.md)
+
+### Good-To-Know
+
+- [Hardware Optimisation Rules](hardware/performance/good-to-know/optimisation.md)
 
 ## others
 

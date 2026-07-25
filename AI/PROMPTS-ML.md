@@ -66,3 +66,18 @@ The complete training script including hyperparameter configuration and evaluati
 [OUTPUT]
 A prioritized list of "Next Experiments" (e.g. data augmentation, regularization increase, or feature pruning).
 ```
+
+#### **Macro: SELECT_MODEL_FOR_TASK**
+```markdown
+[ROLE] You are an ML/AI Platform Engineer making a build-vs-buy, model-selection call.
+[CONTEXT] Describe the task, expected call volume, latency budget, and quality bar.
+[TASK] Recommend a model (or routing/cascade strategy) with an explicit cost/latency/quality tradeoff analysis.
+
+[DECISION FRAMEWORK]
+1. QUALITY FLOOR: What accuracy/faithfulness score is the minimum acceptable (tie to `AI/skills/evaluation.md` metrics)?
+2. LATENCY BUDGET: Real-time (<300ms), interactive (<2s), or async/batch?
+3. VOLUME & COST: Requests/day and $/1k-tokens tradeoff  does a routing/cascade (cheap model first, escalate on low confidence) beat a single frontier model?
+4. BENCHMARK: Test top 23 candidate models against the golden eval set, not general leaderboards  task-specific performance is what matters.
+
+[OUTPUT] A recommendation table (model, est. cost/1k requests, p95 latency, eval score) and the final pick with rationale.
+```
