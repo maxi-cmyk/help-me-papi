@@ -29,6 +29,45 @@ As viewport shrinks, **remove** rather than compress:
 - **Mobile:** Tier 1 only in the main view; Tier 2 behind tabs or bottom sheets; Tier 3 behind settings.
 > *Never shrink a desktop layout into mobile. Redesign the information flow for each breakpoint.*
 
+---
+
+## Terminal / CLI Aesthetic (NFC Portfolio Case Study)
+
+Some products benefit from a deliberately constrained, retro-computing visual language (portfolio sites, developer tools, NFC-connected physical touchpoints). When the brand calls for it:
+
+### Constraints as a Design Tool
+A terminal aesthetic trades visual excess for **signal density**:
+- Monospace body (`font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace`).
+- Near-black background (`#0a0a0a` or `#0d0d0d`), high-contrast text (`#e0e0e0`+).
+- Minimal color: one accent for links/interactions, one dim for secondary, one bright for the cursor/command prompt.
+- No hero images, no cards, no gradients. The content IS the interface.
+
+### Animated Boot Sequence
+A short, skippable terminal boot animation on first visit creates a memorable "arrival" moment:
+- Render lines sequentially with a typewriter effect.
+- End at a blinking cursor and a command prompt.
+- Provide a visible "Skip animation" link — never trap the user.
+
+### Command-Router UI
+Treat the site like a CLI:
+- A `whoami` command that prints identity + brief bio.
+- A `help` command that lists available commands.
+- `ls focus/` that lists current focus areas.
+- `clear` to reset.
+- Each "page" is a command output, not a route change. The URL can still be shareable via hash.
+
+### Why It Works
+- **Instant performance**: a terminal UI is lightweight by nature — no large assets, excellent Core Web Vitals on weak connections (common at events where someone taps an NFC card).
+- **Memorable**: stands out from the generic SaaS aesthetic of every other portfolio.
+- **Physical-digital coherence**: an NFC card that opens a terminal-styled site bridges the physical object and the digital experience with a consistent "hacker" sensibility.
+
+### Pitfalls to Avoid
+- Don't sacrifice readability for theme: monospace is fine, but body text still needs 16px+ and 1.5 line height.
+- Don't make the user learn commands to find basic content — provide a visible nav alongside the terminal.
+- Skip the animation on subsequent visits or when `prefers-reduced-motion` is set.
+
+---
+
 ## Interaction Design
 
 ### Feedback & State

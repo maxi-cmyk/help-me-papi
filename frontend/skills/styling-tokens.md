@@ -33,3 +33,28 @@ Prioritize tight letter-spacing on massive display fonts, and looser tracking on
 - **Display:** (48px+) `letter-spacing: -0.04em; font-weight: 600;`
 - **Heading:** (24px - 40px) `letter-spacing: -0.02em; font-weight: 600;`
 - **Body:** (16px) `letter-spacing: 0; font-weight: 400; line-height: 1.5;`
+
+---
+
+## 5. Retro-Tech Palette (NFC Portfolio Variant)
+
+For projects with a deliberately retro/computing identity (portfolio, NFC-linked experiences, developer tools), a separate palette is appropriate:
+
+- **Base:** warm cream/off-white (`#f5f0e8`)
+- **Text:** deep navy (`#1a1a40`)
+- **Commands/interactive:** brownish-gold (`#b8860b` / `#d4a017`)
+- **Traffic-light status:** red `#dc3545`, yellow `#ffc107`, green `#28a745`
+- **Retro graphics:** restrained — pixel art, scanline effects, blinking cursor
+
+This is intentionally NOT the Apple-like default. The brand calls for it; the tokens encode it. One palette per project.
+
+---
+
+## 6. Shared Design Tokens in a Multi-Frontend Monorepo
+
+When two or more frontends (e.g., patient + nurse) share one backend:
+
+- Create a **shared tokens module** (`frontend/shared/tokens/`) that exports colors, spacing, typography, elevation as CSS custom properties or JS tokens.
+- Both apps import from the shared module. Never duplicate tokens.
+- The tokens module is the **single source of truth**. Changing a token in one place updates both apps.
+- This module should contain **presentation primitives only** — no business logic, no backend calls. Safe to import anywhere.

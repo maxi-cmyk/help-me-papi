@@ -74,6 +74,32 @@ Winning a hackathon is 30% Strategy, 20% Speed, and 50% "The Narrative." We auto
 
 ---
 
+## Part 3: Post-Hackathon — Harvest Lessons (it'sPEAK + Echo Case Studies)
+
+After the hackathon ends and the repo goes quiet, mine it for reusable patterns. This turns a 48-hour sprint into a lasting asset.
+
+### What to Extract
+1. **Pipeline patterns**: Async queue + worker, deterministic pre-checks, LLM fallbacks — these are stack-agnostic and show up in every ML-backed product.
+2. **Auth/DB scaffolding**: The Clerk + Supabase + RLS setup you built under pressure is a battle-tested template. Clean it up and reuse it.
+3. **Deployment runbooks**: The exact Railway + Vercel flow you debugged at 3am is documentation someone else will need. Write it down.
+4. **Prompt strategies**: Which prompts produced working code on the first try? Which needed 5 retries? Capture the winning prompts.
+
+### Case Study: it'sPEAK → help-me-papi
+it'sPEAK was a 24-hour hackathon project that built a full video-analysis pipeline (FastAPI + Celery + MediaPipe + Librosa + OpenAI + Supabase + Vercel). After the hackathon, its lessons were extracted into this repo:
+- `backend/skills/webdev-backend.md` → async pipeline pattern, deterministic fallbacks, dual-deployment.
+- `backend/standards.md` → health checks, signed artifacts.
+- `AI/skills/modeling.md` → multi-modal analysis pipeline, pinned models + eval sets, worker hygiene.
+
+### Case Study: Echo → help-me-papi
+Echo was a hackathon project building a Next.js PWA for dementia therapy. Its lessons shaped this repo:
+- `frontend/skills/layout-and-interaction.md` → accessibility-first design, sundowning/voice-adaptive modes.
+- `AI/skills/modeling.md` → "prioritize familiar memories over novelty" as a product principle (adaptation engine, not just content).
+
+### The Meta-Lesson
+Every hackathon project is a **spike** — a high-speed experiment in what works. The code may be messy, but the *patterns* that worked under pressure are worth keeping. Don't let them rot in a stale repo. Extract them into skills, templates, and standards so the next project starts ahead.
+
+---
+
 ## Part 2: References & Tools
 
 ### Rapid Deployment

@@ -206,3 +206,50 @@ src/ (or lib/)
 ```
 
 Keep business logic completely decoupled from Next.js logic. You should be able to call a service function from an API route, a script, or a background cron job without modifying the service itself.
+
+---
+
+## Async Pipeline Pattern (Heavy LLM / Media Work)
+
+When a request triggers multi-stage analysis (video, audio, documents), do NOT run it in the request/response cycle. Use a queue + worker pattern:
+
+```
+Client → API (fast, returns job_id)
+           ↓
+         Redis queue
+           ↓
+         Worker (Celery/BullMQ) — CPU/memory heavy
+           ↓
+         FFmpeg / MediaPipe / Libroma / LLM
+           ↓
+         Persist results → notify client (polling / WebSocket)
+```
+
+### LLM Integration: Never Trust the Frontier Model Alone
+
+For LLM-backed features (coaching, analysis, document intelligence):
+
+1. **Deterministic fallbacks**: Always have a rule-based fallback when the LLM fails, times out, or returns garbage. The user should see *something* useful even when the model is unavailable:
+   ```python
+   try:
+       coaching = await openai.chat.completions.generate(...)
+   except (TimeoutError, OpenAIError, JSONDecodeError):
+       coaching = deterministic_coaching_rules(analysis_metrics)  # never blank
+   ```
+2. **Grounded outputs**: The LLM's job is to narrate facts that already exist in the analysis, not to invent assessments. Prompt it with structured metrics, not raw video.
+3. **Pinned models**: Pin the exact model version for evaluability; "latest" changes behavior silently.
+4. **Worker restarts**: Heavy ML pipelines (MediaPipe, Librosa) leak memory — restart the worker after each full analysis to keep the box clean.
+
+### Health Checks and Signed Artifacts
+
+- Always expose a `/healthz` endpoint for Railway/Vercel health checks. No auth, returns 200 when the process can serve.
+- For private artifacts (user reports, videos, landmarks), store in Supabase and expose only through **short-lived signed URLs**. Never return raw storage paths in API responses.
+
+### Dual-Deployment Pattern (Vercel + Railway)
+
+For apps that split a Next.js frontend from a FastAPI/Node backend:
+- Two separate GitHub repos (or monorepo with two roots).
+- Vercel: frontend root, `NEXT_PUBLIC_API_URL` → Railway domain.
+- Railway: backend root, `FRONTEND_ORIGIN` → Vercel domain (for CORS).
+- Keep CORS strict: explicit origin allowlist, never `*`.
+- The worker and API must share a mounted artifact directory (Railway volume) so queued jobs can write files the frontend later reads.
