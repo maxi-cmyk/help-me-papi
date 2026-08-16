@@ -62,3 +62,5 @@ Even in a rush, some domains are non-negotiable for a winning demo. Manually att
 1. Deploy the empty scaffolding to Vercel in Hour 1 to guarantee environment variables are configured.
 2. Ensure the core "WOW" feature works perfectly on the live URL.
 3. Have a fallback screen recording ready in case the venue Wi-Fi drops during the demo.
+
+For the full deployment CLI setup (Vercel, Railway, Clerk, Supabase), see **[deployment.md](./deployment.md)**.

@@ -31,9 +31,15 @@ Handle UI development by leveraging the **Stitch MCP** design context and **21st
 
 ### Designing from Scratch
 - "Use Stitch MCP to design a [Screen Name] with [Key Features] and [Primary Color]."
+- "Use Taste Skill to generate a [landing page / dashboard] with high layout variance and subtle motion. See `frontend/docs/taste-skill.md` for the full skill."
 
 ### Coding from Design
 - "Generate React + Tailwind code for the active Stitch design. Use 21st.dev components for [Elements]."
+- "Follow the Taste Skill v2 design language: brief inference → design-system map → generate. Tune DESIGN_VARIANCE=7, MOTION_INTENSITY=5, VISUAL_DENSITY=4."
+
+### Auditing
+- "Run `/impeccable audit <target>` to catch AI design slop before shipping. See `frontend/docs/impeccable-skill.md` for the full skill."
+- "Critique this component against the 100+ anti-slop rules in Impeccable."
 
 ---
 

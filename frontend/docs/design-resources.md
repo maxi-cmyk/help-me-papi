@@ -48,3 +48,89 @@ External directory of what products to study to execute various aesthetics perfe
 - **Study:** Bloomberg Terminal.
 - **Tools:** `AG Grid` for maximum-density DOM manipulation.
 - **References:** Edward Tufte's *Visual Display of Quantitative Information*.
+
+---
+
+## Reusable Theme: Retro 90s Apple (NFC Portfolio)
+
+A warm, nostalgic palette inspired by classic Mac OS (System 7–9) and early Apple design language. Used in the NFC portfolio project.
+
+### Palette
+- **Base:** warm cream / off-white (`#f5f0e8`)
+- **Text:** deep navy (`#1a1a40`)
+- **Commands / interactive:** brownish-gold (`#b8860b` / `#d4a017`)
+- **Traffic-light status:** red `#dc3545`, yellow `#ffc107`, green `#28a745`
+- **Retro graphics:** restrained — pixel art, scanline effects, blinking cursor
+
+### Typography
+- Monospace body (`JetBrains Mono`, `SF Mono`, `Fira Code`) for the terminal sections
+- Tight letter-spacing on display fonts, looser on body
+- 16px minimum body, 1.5 line height
+
+### Key Elements
+- Animated boot sequence (typewriter effect, skippable)
+- Command-router UI (`whoami`, `help`, `ls focus/`, `clear`)
+- Blinking cursor at the end of boot
+- No hero images, no cards, no gradients — content IS the interface
+
+### When to use it
+- Portfolio sites, developer tools, NFC-linked physical touchpoints
+- Projects where you want a memorable, non-generic identity
+- When the brand calls for retro/computing nostalgia
+
+### Why it works
+- **Instant performance:** lightweight by nature, excellent Core Web Vitals on weak connections (common at events where someone taps an NFC card)
+- **Memorable:** stands out from the generic SaaS aesthetic
+- **Physical-digital coherence:** an NFC card that opens a terminal-styled site bridges the physical object and digital experience
+
+### Pitfalls to avoid
+- Don't sacrifice readability for theme: monospace is fine, but body text still needs 16px+ and 1.5 line height
+- Don't make the user learn commands to find basic content — provide a visible nav alongside the terminal
+- Skip the animation on subsequent visits or when `prefers-reduced-motion` is set
+
+---
+
+## Reusable Theme: Clinical / Healthcare (Epicenter)
+
+A clean, trustworthy, accessibility-first palette designed for healthcare applications. Used in the Epicenter outpatient admin demo.
+
+### Palette
+- **Base:** white / very light gray (`#ffffff`, `#f8f9fa`)
+- **Text:** dark charcoal (`#1a1a1a`, `#333333`)
+- **Primary:** medical blue (`#007bff`, `#0056b3`)
+- **Status colors:** green (ready/positive), amber (warning/pending), red (error/urgent), blue (informational)
+- **Borders:** subtle grays (`#dee2e6`, `#ced4da`)
+
+### Typography
+- Clean sans-serif (`Inter`, `system-ui`, `-apple-system`)
+- 16px minimum body, 1.5 line height
+- Clear heading hierarchy (max 3 levels per view)
+- WCAG AA contrast minimum (4.5:1 for body, 3:1 for large)
+
+### Key Elements
+- **Gated task flow:** explicit steps with clear state (Identity → Forms → Review → Billing → Summary)
+- **Status indicators:** color + text label (never color alone)
+- **Queue display:** prominent number + assigned counter
+- **Simulator mode:** deterministic replay of clinic-day scenarios
+- **Demo mode:** synthetic principals for local dev/testing
+
+### Accessibility priorities
+- Full keyboard navigation
+- Focus indicators visible
+- Error messages in plain language with recovery actions
+- Touch targets 44px+ (Apple) / 48dp (Material)
+
+### When to use it
+- Healthcare apps, clinical tools, patient portals
+- Any application where trust, clarity, and accessibility are paramount
+- Multi-role systems (patient + provider + admin)
+
+### Why it works
+- **Trustworthy:** clean, professional, not flashy
+- **Accessible:** designed for users with varying abilities and stress levels
+- **Scalable:** works for simple (patient view) and complex (nurse dashboard) interfaces
+
+### Pitfalls to avoid
+- Don't rely on color alone to convey status — always pair with text or icon
+- Don't hide critical actions behind modals or nested menus
+- Don't forget the demo mode boundary: synthetic data for dev, never for production decisions

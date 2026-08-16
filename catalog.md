@@ -89,6 +89,7 @@
 - [Frontend Agentic Macro Library](frontend/PROMPTS.md)
 - [Inspiration by Aesthetic](frontend/docs/design-resources.md)
 - [/impeccable  Design Vocabulary Skill](frontend/docs/impeccable-skill.md)
+- [Taste Skill — Anti-Slop Frontend Framework](frontend/docs/taste-skill.md)
 - [Frontend Libraries](frontend/docs/tooling-resources.md)
 - [UI/UX Literature & Conceptual Frameworks](frontend/docs/ui-ux-resources.md)
 
@@ -97,6 +98,7 @@
 ### Skills
 
 - [Hackathon Backend Practices](hackathons/skills/backend.md)
+- [Deployment Skill — CLI Setup Guide](hackathons/skills/deployment.md)
 - [Hackathon Frontend Practices](hackathons/skills/frontend.md)
 - [Hackathon Strategy and Pitch Mastery](hackathons/skills/hackathon-strategy.md)
 

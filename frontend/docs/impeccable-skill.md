@@ -106,16 +106,35 @@ Straight from the skill's own guidance  it will actively push back on:
 
 These overlap directly with this repo's `standards.md` Clarity-First rules, which is why `AUDIT_UI_CLARITY` in `PROMPTS.md` calls `/impeccable audit`/`critique` as its verification step.
 
-## CI / non-agent usage
+## Detector CLI (CI / non-agent usage)
 
 The detector also runs headless for CI gates:
 ```bash
-npx impeccable detect src/
+npx impeccable detect src/                # human-readable output
+npx impeccable detect --json src/         # CI-friendly JSON output
+npx impeccable detect --no-config src/    # raw scan, ignoring project config
+npx impeccable ignores list               # show detector ignores
+npx impeccable ignores add-file "src/legacy/**"
+npx impeccable ignores add-value overused-font Inter --reason "Brand font"
 ```
-59+ deterministic rules, JSON output, exit codes suitable for failing a PR check.
+
+The detector catches 59 deterministic issues across AI slop (side-tab borders, purple gradients, bounce easing, dark glows) and general design quality (line length, cramped padding, small touch targets, skipped headings, and more).
+
+By default, `detect` respects the same `.impeccable/config.json` and `.impeccable/config.local.json` detector config as the design hook: `detector.ignoreRules`, `detector.ignoreFiles`, `detector.ignoreValues`, and `detector.designSystem.enabled`. Hook lifecycle settings such as `hook.enabled` only affect automatic hook execution.
+
+For a waiver that should travel with one file instead of the repo config, add an inline comment in the file: `<!-- impeccable-disable overused-font: exported brand doc -->`. The marker works in any comment syntax, scopes to the whole file (or one line with `impeccable-disable-line` / `impeccable-disable-next-line`), and is bypassed by `--no-inline-ignores` or `--no-config`.
+
+Full detector docs: [impeccable.style/docs/detector](https://impeccable.style/docs/detector).
+
+## Pairing with Taste Skill
+
+- **Taste Skill** (see `frontend/docs/taste-skill.md`) generates the UI with stronger design taste.
+- **Impeccable** audits and detects slop.
+- Run both: generate with taste, audit with `/impeccable audit`. They're complementary, not competing.
 
 ## Reference
 
 - Repo: https://github.com/pbakaus/impeccable
 - Site / full docs: https://impeccable.style/
 - Command reference: https://impeccable.style/docs
+- Detector docs: https://impeccable.style/docs/detector

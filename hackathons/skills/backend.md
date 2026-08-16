@@ -180,6 +180,10 @@ Next.js?
 4. **Test the deployed version.** Demo from the production URL, not localhost.
 5. **One person owns deployment.** They know the login, env vars, and how to roll back.
 
+### CLI setup guide
+
+For the full step-by-step (Vercel, Railway, Clerk, Supabase CLI commands, environment variables, RLS, CORS), see **[deployment.md](./deployment.md)**.
+
 ### Common Vercel failures
 
 | Symptom | Likely cause | Fix |
